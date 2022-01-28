@@ -68,10 +68,13 @@ class SafariStepsController: NativeHeaderController {
             default:
                 break
             }
-            currrentYPosition = view.frame.maxY + NativeLayout.Spaces.default_more
+            // _UIScrollViewIndicator
+            if !view.className.starts(with: "_") {
+                currrentYPosition = view.frame.maxY + NativeLayout.Spaces.default_more
+            }
         }
         
-        scrollView.contentSize = .init(width: scrollView.frame.width, height: currrentYPosition + actionToolbarView.frame.height + NativeLayout.Spaces.default_double)
+        scrollView.contentSize = .init(width: scrollView.frame.width, height: currrentYPosition)
     }
     
     class SafariStepArrowView: SPView {
