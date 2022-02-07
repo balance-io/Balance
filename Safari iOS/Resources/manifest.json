@@ -34,7 +34,8 @@
             "19": "images/toolbar-icon-19.png",
             "32": "images/toolbar-icon-32.png",
             "38": "images/toolbar-icon-38.png"
-        }
+        },
+        "default_popup": "popup.html"
     },
 
     "permissions": [

@@ -148,6 +148,8 @@
 		2CF255BA275A749300AE54B9 /* ApproveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF255B9275A749300AE54B9 /* ApproveViewController.swift */; };
 		2CFDDF4C2765416F00F89019 /* macos-specific-content.js in Resources */ = {isa = PBXBuildFile; fileRef = 2CFDDF4B2765416F00F89019 /* macos-specific-content.js */; };
 		2CFDDF4E2765417E00F89019 /* ios-specific-content.js in Resources */ = {isa = PBXBuildFile; fileRef = 2CFDDF4D2765417D00F89019 /* ios-specific-content.js */; };
+		6EAC8FE627B1127900F7E4DE /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = 6EAC8FE527B1127900F7E4DE /* popup.html */; };
+		6EAC8FE727B1127900F7E4DE /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = 6EAC8FE527B1127900F7E4DE /* popup.html */; };
 		DFC5A10D00631755121FCBE6 /* Pods_Balance_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29A83FE96A68BB9F154134EF /* Pods_Balance_iOS.framework */; };
 		F40432D527AAA082001E8F1D /* WalletExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40432D427AAA082001E8F1D /* WalletExtension.swift */; };
 		F42D390727A9657A006DCF5B /* ExtensionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42D390627A9657A006DCF5B /* ExtensionService.swift */; };
@@ -393,6 +395,7 @@
 		2CFDDF4B2765416F00F89019 /* macos-specific-content.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "macos-specific-content.js"; sourceTree = "<group>"; };
 		2CFDDF4D2765417D00F89019 /* ios-specific-content.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "ios-specific-content.js"; sourceTree = "<group>"; };
 		4A2B4FCB9C257ECA0630805D /* Pods_Balance.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Balance.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6EAC8FE527B1127900F7E4DE /* popup.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = popup.html; sourceTree = "<group>"; };
 		97732C86E51B06E7896F9030 /* Pods-Balance iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Balance iOS.release.xcconfig"; path = "Target Support Files/Pods-Balance iOS/Pods-Balance iOS.release.xcconfig"; sourceTree = "<group>"; };
 		B0F99598E16ED4AD726860D3 /* Pods-Balance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Balance.release.xcconfig"; path = "Target Support Files/Pods-Balance/Pods-Balance.release.xcconfig"; sourceTree = "<group>"; };
 		C289F6A7A78D99CF20B75732 /* Pods-Balance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Balance.debug.xcconfig"; path = "Target Support Files/Pods-Balance/Pods-Balance.debug.xcconfig"; sourceTree = "<group>"; };
@@ -753,6 +756,7 @@
 				2CEFEB15274D5DC900CE23BD /* inpage.js */,
 				2C09CBAA273979C1009AD39B /* background.js */,
 				2C09CBAC273979C1009AD39B /* content.js */,
+				6EAC8FE527B1127900F7E4DE /* popup.html */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1372,6 +1376,7 @@
 				2CB3845D27654EB300A189B9 /* images in Resources */,
 				2CC8C5A7276A54DA0083FB1B /* macos-specific-background.js in Resources */,
 				2CEFEB16274D5DCA00CE23BD /* inpage.js in Resources */,
+				6EAC8FE627B1127900F7E4DE /* popup.html in Resources */,
 				2C09CBAB273979C1009AD39B /* background.js in Resources */,
 				2C09CBA9273979C1009AD39B /* manifest.json in Resources */,
 				2C09CBAD273979C1009AD39B /* content.js in Resources */,
@@ -1422,6 +1427,7 @@
 				2CB3845A27654EA900A189B9 /* _locales in Resources */,
 				2CB3845B27654EA900A189B9 /* images in Resources */,
 				2CE0594027640E8E0042D844 /* background.js in Resources */,
+				6EAC8FE727B1127900F7E4DE /* popup.html in Resources */,
 				2CE0594227640E8E0042D844 /* inpage.js in Resources */,
 				2CCEB83727594E2A00768473 /* manifest.json in Resources */,
 				2CE0594127640E8E0042D844 /* content.js in Resources */,
