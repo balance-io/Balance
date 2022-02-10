@@ -34,7 +34,7 @@ let barInjected = false;
 let data = {
     address: `0x`,
     balance: `0.00`,
-    chainId: `1`,
+    chainId: 1,
     ticker: `ETH`,
 };
 
@@ -227,6 +227,7 @@ browser.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
                 message: {
                     address: [data.address],
                     balance: data.balance,
+                    chainId: data.chainId,
                     connected: true,
                     message: `get_state_response`,
                 },
@@ -236,6 +237,7 @@ browser.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
                 message: {
                     address: [``],
                     balance: -1,
+                    chainId: -1,
                     connected: false,
                     message: `get_state_response`,
                 },
