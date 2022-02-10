@@ -28,6 +28,7 @@ browser.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
                 message: {
                     address: request.message.address[0],
                     balance: request.message.balance,
+                    connected: request.message.connected,
                 },
             });
             break;

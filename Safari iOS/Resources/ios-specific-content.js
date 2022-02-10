@@ -222,13 +222,25 @@ browser.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
     if (typeof request.message === `undefined`) return;
 
     if (request.message === `get_state_request`) {
-        browser.runtime.sendMessage({
-            message: {
-                address: [`0x0000`],
-                balance: `0 ETH`,
-                message: `get_state_response`,
-            },
-        });
+        if (data.address.toString().length === 42) {
+            browser.runtime.sendMessage({
+                message: {
+                    address: [data.address],
+                    balance: data.balance,
+                    connected: true,
+                    message: `get_state_response`,
+                },
+            });
+        } else {
+            browser.runtime.sendMessage({
+                message: {
+                    address: [``],
+                    balance: -1,
+                    connected: false,
+                    message: `get_state_response`,
+                },
+            });
+        }
     }
 });
 
