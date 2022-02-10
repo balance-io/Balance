@@ -22,7 +22,7 @@
 }
 
 body {
-    background: linear-gradient(0deg, #F6F8FA, #F6F8FA), url(.png), linear-gradient(0deg, #F7F7F8, #F7F7F8);
+    background: linear-gradient(0deg, #F6F8FA, #F6F8FA), linear-gradient(0deg, #F7F7F8, #F7F7F8);
     font-family: var(--font);
     margin: 25px 0 0 0;
     padding: 0 16px;

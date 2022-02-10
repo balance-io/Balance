@@ -218,4 +218,18 @@ window.addEventListener(`message`, function (event) {
     }
 });
 
+browser.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
+    if (typeof request.message === `undefined`) return;
+
+    if (request.message === `get_state_request`) {
+        browser.runtime.sendMessage({
+            message: {
+                address: [`0x0000`],
+                balance: `0 ETH`,
+                message: `get_state_response`,
+            },
+        });
+    }
+});
+
 setTimeout(injectScript, 100);
