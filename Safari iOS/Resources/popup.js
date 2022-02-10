@@ -9,11 +9,23 @@ let data = {
 
 const views = {
     idleConnected: () => `
-        <p>${data.address}</p>
-        <p>${data.balance} ${data.ticker}</p>
+        <section class="section">
+            <div class="network">
+                <label for="network" class="network__label">Network</label>
+                <select id="network" class="network__select">
+                    <option>Ethereum Mainnet</option>
+                </select>
+            </div>
+        </section>
+        <section class="section">
+            <p class="balance">${data.balance} ${data.ticker}</p>
+            <p class="address">${data.address.slice(0, 21)}<br>${data.address.slice(-21)}</p>
+        </section>
     `,
     idleNotConnected: () => `
-        <p>Not connected</p>
+        <section class="section">
+            <p class="balance">Not connected</p>
+        </section>
     `,
 };
 
