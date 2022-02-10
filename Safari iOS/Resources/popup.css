@@ -74,6 +74,28 @@ body {
     line-height: 29px;
 }
 
+.wrapper {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    align-items: center;
+    background-color: #007aff;
+    border-radius: 12px;
+    color: #fff;
+    column-gap: 12px;
+    display: flex;
+    font-size: 17px;
+    font-weight: 600;
+    justify-content: center;
+    letter-spacing: -.41px;
+    line-height: 22px;
+    padding: 13px 0;
+    width: 270px;
+}
+
 @media (prefers-color-scheme: dark) {
     /* TODO: dark mode */
 }
