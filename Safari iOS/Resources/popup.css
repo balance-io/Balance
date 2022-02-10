@@ -1,0 +1,72 @@
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition-duration: 0s !important;
+    }
+}
+
+:root {
+    --font: -apple-system, BlinkMacSystemFont, system-ui;
+
+    color-scheme: light dark;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(0deg, #F6F8FA, #F6F8FA), url(.png), linear-gradient(0deg, #F7F7F8, #F7F7F8);
+    font-family: var(--font);
+    margin: 25px 0 0 0;
+    padding: 0 16px;
+}
+
+.section {
+    background: linear-gradient(0deg, #fff, #fff), linear-gradient(0deg, #172732, #172732);
+    border-radius: 20px;
+    margin-bottom: 20px;
+    padding: 17px 16px;
+    width: 100%;
+}
+
+.network {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.network__label {
+    color: #000;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -.38px;
+    line-height: 21px;
+}
+
+.network__select {
+    color: #3478F6;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -.38px;
+    line-height: 21px;
+}
+
+.balance {
+    color: #000;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -.38px;
+    line-height: 21px;
+}
+
+.address {
+    color: #849089;
+    font-size: 24px;
+    letter-spacing: -.38px;
+    line-height: 29px;
+}
+
+@media (prefers-color-scheme: dark) {
+    /* TODO: dark mode */
+}
