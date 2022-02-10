@@ -5,8 +5,14 @@
     }
 }
 
+@font-face {
+    font-display: swap;
+    font-family: Rubik;
+    src: local("Rubik"), url("safari-web-extension://__MSG_@@extension_id__/Rubik-VariableFont_wght.ttf") format("truetype");
+}
+
 :root {
-    --font: -apple-system, BlinkMacSystemFont, system-ui;
+    --font: Rubik, -apple-system, BlinkMacSystemFont, system-ui;
 
     color-scheme: light dark;
 }
