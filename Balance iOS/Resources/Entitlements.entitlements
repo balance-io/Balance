@@ -6,5 +6,9 @@
 	<array>
 		<string>group.io.balance</string>
 	</array>
+	<key>keychain-access-groups</key>
+	<array>
+		<string>$(AppIdentifierPrefix)io.balance</string>
+	</array>
 </dict>
 </plist>

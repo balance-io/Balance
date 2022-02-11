@@ -48,8 +48,6 @@
 		2C6B964F26B9D98C00D2C819 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C6B964E26B9D98C00D2C819 /* Colors.xcassets */; };
 		2C773F5C2742D483007B04E7 /* SafariRequest+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C773F5B2742D483007B04E7 /* SafariRequest+Helpers.swift */; };
 		2C773F5E27450B97007B04E7 /* ExtensionBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C773F5D27450B97007B04E7 /* ExtensionBridge.swift */; };
-		2C773F5F27450FBD007B04E7 /* ExtensionBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C773F5D27450B97007B04E7 /* ExtensionBridge.swift */; };
-		2C773F62274523DC007B04E7 /* ResponseToExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C773F61274523DC007B04E7 /* ResponseToExtension.swift */; };
 		2C773F63274523DC007B04E7 /* ResponseToExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C773F61274523DC007B04E7 /* ResponseToExtension.swift */; };
 		2C78F8282683BDCC00C10670 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C78F8272683BDCC00C10670 /* Alert.swift */; };
 		2C797E7E267BB88800F2CE2D /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C797E7D267BB88800F2CE2D /* WelcomeViewController.swift */; };
@@ -97,8 +95,6 @@
 		2CC8C5A7276A54DA0083FB1B /* macos-specific-background.js in Resources */ = {isa = PBXBuildFile; fileRef = 2CC8C5A6276A54DA0083FB1B /* macos-specific-background.js */; };
 		2CC8C5AC276A7EF70083FB1B /* EthereumChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F0B6726BDCB2E008FA3D6 /* EthereumChain.swift */; };
 		2CC8C5AD276A7EF80083FB1B /* EthereumChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F0B6726BDCB2E008FA3D6 /* EthereumChain.swift */; };
-		2CC8C5AF276A7F310083FB1B /* SafariRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC8C5AE276A7F310083FB1B /* SafariRequest.swift */; };
-		2CC8C5B0276A7F310083FB1B /* SafariRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC8C5AE276A7F310083FB1B /* SafariRequest.swift */; };
 		2CC8C5B1276A7F310083FB1B /* SafariRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC8C5AE276A7F310083FB1B /* SafariRequest.swift */; };
 		2CC8C5B2276A7F310083FB1B /* SafariRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC8C5AE276A7F310083FB1B /* SafariRequest.swift */; };
 		2CC8C5B4276A96760083FB1B /* Haptic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC8C5B3276A96760083FB1B /* Haptic.swift */; };
@@ -116,11 +112,8 @@
 		2CE0594127640E8E0042D844 /* content.js in Resources */ = {isa = PBXBuildFile; fileRef = 2C09CBAC273979C1009AD39B /* content.js */; };
 		2CE0594227640E8E0042D844 /* inpage.js in Resources */ = {isa = PBXBuildFile; fileRef = 2CEFEB15274D5DC900CE23BD /* inpage.js */; };
 		2CE0594327640EAB0042D844 /* ExtensionBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C773F5D27450B97007B04E7 /* ExtensionBridge.swift */; };
-		2CE0594427640EB40042D844 /* ExtensionBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C773F5D27450B97007B04E7 /* ExtensionBridge.swift */; };
 		2CE0594527640EF10042D844 /* ResponseToExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C773F61274523DC007B04E7 /* ResponseToExtension.swift */; };
 		2CE0594627640F470042D844 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC89470269A334A00879245 /* UserDefaults.swift */; };
-		2CE059492764D69D0042D844 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C09CBA1273979C1009AD39B /* SafariWebExtensionHandler.swift */; };
-		2CE0594A2764D69D0042D844 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C09CBA1273979C1009AD39B /* SafariWebExtensionHandler.swift */; };
 		2CE3D012267F73C00032A62E /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3D011267F73C00032A62E /* Transaction.swift */; };
 		2CEFEB16274D5DCA00CE23BD /* inpage.js in Resources */ = {isa = PBXBuildFile; fileRef = 2CEFEB15274D5DC900CE23BD /* inpage.js */; };
 		2CF25597275A46D300AE54B9 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C528A15267FA8EB00CA3ADD /* Defaults.swift */; };
@@ -145,7 +138,6 @@
 		2CF255AC275A48CF00AE54B9 /* EthereumNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F0B6426BDC9AF008FA3D6 /* EthereumNetwork.swift */; };
 		2CF255AD275A48CF00AE54B9 /* EthereumChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F0B6726BDCB2E008FA3D6 /* EthereumChain.swift */; };
 		2CF255AE275A48CF00AE54B9 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3D011267F73C00032A62E /* Transaction.swift */; };
-		2CF255B1275A4A1800AE54B9 /* ResponseToExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C773F61274523DC007B04E7 /* ResponseToExtension.swift */; };
 		2CF255B2275A4A7200AE54B9 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC89470269A334A00879245 /* UserDefaults.swift */; };
 		2CF255B4275A744000AE54B9 /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF255B3275A744000AE54B9 /* PasswordViewController.swift */; };
 		2CF255B6275A746000AE54B9 /* AccountsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF255B5275A746000AE54B9 /* AccountsListViewController.swift */; };
@@ -154,6 +146,32 @@
 		2CFDDF4C2765416F00F89019 /* macos-specific-content.js in Resources */ = {isa = PBXBuildFile; fileRef = 2CFDDF4B2765416F00F89019 /* macos-specific-content.js */; };
 		2CFDDF4E2765417E00F89019 /* ios-specific-content.js in Resources */ = {isa = PBXBuildFile; fileRef = 2CFDDF4D2765417D00F89019 /* ios-specific-content.js */; };
 		6EAC8FE927B2D60900F7E4DE /* BlockiesAddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EAC8FE827B2D60900F7E4DE /* BlockiesAddressTableViewCell.swift */; };
+		6EAC8FEC27B6626800F7E4DE /* Approvals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EAC8FEB27B6626800F7E4DE /* Approvals.swift */; };
+		6EAC8FED27B6626800F7E4DE /* Approvals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EAC8FEB27B6626800F7E4DE /* Approvals.swift */; };
+		6EAC8FEE27B6626800F7E4DE /* Approvals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EAC8FEB27B6626800F7E4DE /* Approvals.swift */; };
+		6EAC8FEF27B6626800F7E4DE /* Approvals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EAC8FEB27B6626800F7E4DE /* Approvals.swift */; };
+		6EAC8FF027B664CB00F7E4DE /* SafariRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC8C5AE276A7F310083FB1B /* SafariRequest.swift */; };
+		6EAC8FF127B664CB00F7E4DE /* SafariRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC8C5AE276A7F310083FB1B /* SafariRequest.swift */; };
+		6EAC8FF227B664CB00F7E4DE /* ResponseToExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C773F61274523DC007B04E7 /* ResponseToExtension.swift */; };
+		6EAC8FF327B664CB00F7E4DE /* ResponseToExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C773F61274523DC007B04E7 /* ResponseToExtension.swift */; };
+		6EAC8FF427B664E700F7E4DE /* ExtensionBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C773F5D27450B97007B04E7 /* ExtensionBridge.swift */; };
+		6EAC8FF527B664E800F7E4DE /* ExtensionBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C773F5D27450B97007B04E7 /* ExtensionBridge.swift */; };
+		6EAC8FF927B6996F00F7E4DE /* TokenaryWallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD0668B26B2142000728C20 /* TokenaryWallet.swift */; };
+		6EAC8FFA27B6996F00F7E4DE /* WalletsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD0668926B213E500728C20 /* WalletsManager.swift */; };
+		6EAC8FFB27B6997000F7E4DE /* TokenaryWallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD0668B26B2142000728C20 /* TokenaryWallet.swift */; };
+		6EAC8FFC27B6997000F7E4DE /* WalletsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD0668926B213E500728C20 /* WalletsManager.swift */; };
+		6EAC8FFE27B69F0900F7E4DE /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C917428267D2A6E00049075 /* Keychain.swift */; };
+		6EAC8FFF27B69F0A00F7E4DE /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C917428267D2A6E00049075 /* Keychain.swift */; };
+		6EAC900027B69F4100F7E4DE /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6706A4267A6BFE006AAEF2 /* Bundle.swift */; };
+		6EAC900127B69F4100F7E4DE /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C96D39727623EC600687301 /* URL.swift */; };
+		6EAC900227B69F4100F7E4DE /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C03D1D4269B428C00EF10EA /* Notification.swift */; };
+		6EAC900327B69F4100F7E4DE /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C603D0126B6E13F00956955 /* String.swift */; };
+		6EAC900427B69F4100F7E4DE /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6706A4267A6BFE006AAEF2 /* Bundle.swift */; };
+		6EAC900527B69F4100F7E4DE /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C96D39727623EC600687301 /* URL.swift */; };
+		6EAC900627B69F4100F7E4DE /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C03D1D4269B428C00EF10EA /* Notification.swift */; };
+		6EAC900727B69F4100F7E4DE /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C603D0126B6E13F00956955 /* String.swift */; };
+		6EAC900827B69F9700F7E4DE /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = F468F02327A025AB007DD803 /* Notifications.swift */; };
+		98870B0CF598B9ED35EB432A /* Pods_Safari_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA70465E4A8AD5C405A76C02 /* Pods_Safari_iOS.framework */; };
 		DFC5A10D00631755121FCBE6 /* Pods_Balance_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29A83FE96A68BB9F154134EF /* Pods_Balance_iOS.framework */; };
 		F40432D527AAA082001E8F1D /* WalletExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40432D427AAA082001E8F1D /* WalletExtension.swift */; };
 		F42D390727A9657A006DCF5B /* ExtensionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42D390627A9657A006DCF5B /* ExtensionService.swift */; };
@@ -404,10 +422,14 @@
 		2CFDDF4B2765416F00F89019 /* macos-specific-content.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "macos-specific-content.js"; sourceTree = "<group>"; };
 		2CFDDF4D2765417D00F89019 /* ios-specific-content.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "ios-specific-content.js"; sourceTree = "<group>"; };
 		4A2B4FCB9C257ECA0630805D /* Pods_Balance.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Balance.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D0CBF6DF2B94AFADB417539 /* Pods-Safari iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Safari iOS.debug.xcconfig"; path = "Target Support Files/Pods-Safari iOS/Pods-Safari iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		6EAC8FE827B2D60900F7E4DE /* BlockiesAddressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockiesAddressTableViewCell.swift; sourceTree = "<group>"; };
+		6EAC8FEB27B6626800F7E4DE /* Approvals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Approvals.swift; sourceTree = "<group>"; };
 		97732C86E51B06E7896F9030 /* Pods-Balance iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Balance iOS.release.xcconfig"; path = "Target Support Files/Pods-Balance iOS/Pods-Balance iOS.release.xcconfig"; sourceTree = "<group>"; };
 		B0F99598E16ED4AD726860D3 /* Pods-Balance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Balance.release.xcconfig"; path = "Target Support Files/Pods-Balance/Pods-Balance.release.xcconfig"; sourceTree = "<group>"; };
 		C289F6A7A78D99CF20B75732 /* Pods-Balance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Balance.debug.xcconfig"; path = "Target Support Files/Pods-Balance/Pods-Balance.debug.xcconfig"; sourceTree = "<group>"; };
+		EA70465E4A8AD5C405A76C02 /* Pods_Safari_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Safari_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF3A81E9809BA8605D9E6E27 /* Pods-Safari iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Safari iOS.release.xcconfig"; path = "Target Support Files/Pods-Safari iOS/Pods-Safari iOS.release.xcconfig"; sourceTree = "<group>"; };
 		F3B5261B155EF9E06AAD7D4C /* Pods-Balance iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Balance iOS.debug.xcconfig"; path = "Target Support Files/Pods-Balance iOS/Pods-Balance iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		F40432D427AAA082001E8F1D /* WalletExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletExtension.swift; sourceTree = "<group>"; };
 		F42D390627A9657A006DCF5B /* ExtensionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionService.swift; sourceTree = "<group>"; };
@@ -527,6 +549,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98870B0CF598B9ED35EB432A /* Pods_Safari_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -554,6 +577,7 @@
 			children = (
 				4A2B4FCB9C257ECA0630805D /* Pods_Balance.framework */,
 				29A83FE96A68BB9F154134EF /* Pods_Balance_iOS.framework */,
+				EA70465E4A8AD5C405A76C02 /* Pods_Safari_iOS.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -584,7 +608,8 @@
 				F468EFC527A00EAB007DD803 /* Constants */,
 				F468EFC427A00EAA007DD803 /* ExtensionImport */,
 				F468EFC327A00E84007DD803 /* AppImport */,
-				2CCEB7A127592A1F00768473 /* Shared */,
+				6EAC8FEA27B6625400F7E4DE /* Shared */,
+				2CCEB7A127592A1F00768473 /* Balance Shared */,
 				2C5FF97026C84F7B00B32ACC /* Balance iOS */,
 				2C19953E2674C4B900A8E370 /* Balance macOS */,
 				2CCEB7A227592A3800768473 /* Safari-Shared */,
@@ -693,7 +718,6 @@
 			children = (
 				2C1995552674D0F300A8E370 /* Ethereum.swift */,
 				2C9F0B6426BDC9AF008FA3D6 /* EthereumNetwork.swift */,
-				2C9F0B6726BDCB2E008FA3D6 /* EthereumChain.swift */,
 				2CE3D011267F73C00032A62E /* Transaction.swift */,
 			);
 			path = Ethereum;
@@ -794,19 +818,16 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		2CCEB7A127592A1F00768473 /* Shared */ = {
+		2CCEB7A127592A1F00768473 /* Balance Shared */ = {
 			isa = PBXGroup;
 			children = (
-				0A0C549627AB29E0004510F4 /* Supporting Files */,
 				2C901C492689F01700D0926A /* Strings.swift */,
 				2C528A15267FA8EB00CA3ADD /* Defaults.swift */,
 				2C8A09C2267513A700993638 /* Ethereum */,
 				2CF255A4275A483600AE54B9 /* Services */,
-				2CF2559F275A47B600AE54B9 /* Extension */,
-				2CD0668826B213BB00728C20 /* Wallets */,
 				2CF25596275A468B00AE54B9 /* Models */,
 			);
-			path = Shared;
+			path = "Balance Shared";
 			sourceTree = "<group>";
 		};
 		2CCEB7A227592A3800768473 /* Safari-Shared */ = {
@@ -815,9 +836,6 @@
 				2CB3844227654BD500A189B9 /* web3-provider */,
 				2CB3844027654A0D00A189B9 /* Resources */,
 				2C09CBA1273979C1009AD39B /* SafariWebExtensionHandler.swift */,
-				2C773F5D27450B97007B04E7 /* ExtensionBridge.swift */,
-				2CC8C5AE276A7F310083FB1B /* SafariRequest.swift */,
-				2C773F61274523DC007B04E7 /* ResponseToExtension.swift */,
 			);
 			path = "Safari-Shared";
 			sourceTree = "<group>";
@@ -870,6 +888,7 @@
 		2CF2559F275A47B600AE54B9 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				F468F02327A025AB007DD803 /* Notifications.swift */,
 				2CC89470269A334A00879245 /* UserDefaults.swift */,
 				2C6706A4267A6BFE006AAEF2 /* Bundle.swift */,
 				2C96D39727623EC600687301 /* URL.swift */,
@@ -887,7 +906,6 @@
 				2C901C4C268A033100D0926A /* GasService.swift */,
 				2CC0CDBD2692027E0072922A /* PriceService.swift */,
 				2CC8946E269A2E8C00879245 /* SessionStorage.swift */,
-				2C917428267D2A6E00049075 /* Keychain.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -901,6 +919,30 @@
 				2C8E88A1275FA596003EB8DB /* ImportViewController.swift */,
 			);
 			path = Screens;
+			sourceTree = "<group>";
+		};
+		6EAC8FEA27B6625400F7E4DE /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				6EAC8FEB27B6626800F7E4DE /* Approvals.swift */,
+				2CC8C5AE276A7F310083FB1B /* SafariRequest.swift */,
+				2C773F61274523DC007B04E7 /* ResponseToExtension.swift */,
+				2C773F5D27450B97007B04E7 /* ExtensionBridge.swift */,
+				2C9F0B6726BDCB2E008FA3D6 /* EthereumChain.swift */,
+				2CF2559F275A47B600AE54B9 /* Extension */,
+				6EAC8FFD27B69EE000F7E4DE /* Services */,
+				2CD0668826B213BB00728C20 /* Wallets */,
+				0A0C549627AB29E0004510F4 /* Supporting Files */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		6EAC8FFD27B69EE000F7E4DE /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				2C917428267D2A6E00049075 /* Keychain.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		F43F0A7927AD40720099C2C7 /* Localisations */ = {
@@ -947,7 +989,6 @@
 				F468EFCD27A00EEE007DD803 /* Scenes */,
 				F468EFD127A00EEE007DD803 /* UISceneConfiguration+Scene.swift */,
 				F468EFD227A00EEE007DD803 /* SceneUserActivity.swift */,
-				F468F02327A025AB007DD803 /* Notifications.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -1214,6 +1255,8 @@
 				B0F99598E16ED4AD726860D3 /* Pods-Balance.release.xcconfig */,
 				F3B5261B155EF9E06AAD7D4C /* Pods-Balance iOS.debug.xcconfig */,
 				97732C86E51B06E7896F9030 /* Pods-Balance iOS.release.xcconfig */,
+				5D0CBF6DF2B94AFADB417539 /* Pods-Safari iOS.debug.xcconfig */,
+				EF3A81E9809BA8605D9E6E27 /* Pods-Safari iOS.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -1319,6 +1362,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2CCEB84927594E2A00768473 /* Build configuration list for PBXNativeTarget "Safari iOS" */;
 			buildPhases = (
+				BFEADAB775F99A4944B92A65 /* [CP] Check Pods Manifest.lock */,
 				2CB3844927654C8D00A189B9 /* ShellScript */,
 				2CCEB82927594E2A00768473 /* Sources */,
 				2CCEB82A27594E2A00768473 /* Frameworks */,
@@ -1587,6 +1631,28 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		BFEADAB775F99A4944B92A65 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Safari iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		F59181777D33C21BD946A400 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1612,11 +1678,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CF255B2275A4A7200AE54B9 /* UserDefaults.swift in Sources */,
+				6EAC900427B69F4100F7E4DE /* Bundle.swift in Sources */,
 				2C773F5E27450B97007B04E7 /* ExtensionBridge.swift in Sources */,
+				6EAC8FEE27B6626800F7E4DE /* Approvals.swift in Sources */,
 				F4AD4A0127ABD64B00F613AF /* Secrets.swift in Sources */,
+				6EAC900527B69F4100F7E4DE /* URL.swift in Sources */,
 				2CC8C5AC276A7EF70083FB1B /* EthereumChain.swift in Sources */,
+				6EAC8FFE27B69F0900F7E4DE /* Keychain.swift in Sources */,
 				2CC8C5B1276A7F310083FB1B /* SafariRequest.swift in Sources */,
+				6EAC8FF927B6996F00F7E4DE /* TokenaryWallet.swift in Sources */,
+				6EAC900627B69F4100F7E4DE /* Notification.swift in Sources */,
 				2C09CBA2273979C1009AD39B /* SafariWebExtensionHandler.swift in Sources */,
+				6EAC900727B69F4100F7E4DE /* String.swift in Sources */,
+				6EAC8FFA27B6996F00F7E4DE /* WalletsManager.swift in Sources */,
 				2C773F63274523DC007B04E7 /* ResponseToExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1632,19 +1706,20 @@
 				2C8A09C6267513FC00993638 /* Agent.swift in Sources */,
 				2C8A09D42675184700993638 /* Window.swift in Sources */,
 				2C9F0B6526BDC9AF008FA3D6 /* EthereumNetwork.swift in Sources */,
-				2C773F62274523DC007B04E7 /* ResponseToExtension.swift in Sources */,
-				2CE0594A2764D69D0042D844 /* SafariWebExtensionHandler.swift in Sources */,
 				2CC8946F269A2E8C00879245 /* SessionStorage.swift in Sources */,
 				0DC850E726B73A5900809E82 /* AuthenticationReason.swift in Sources */,
 				2CAA412526C7CD93009F3535 /* ReviewRequester.swift in Sources */,
+				6EAC8FF227B664CB00F7E4DE /* ResponseToExtension.swift in Sources */,
 				2CD0669126B5537B00728C20 /* TokenaryWallet.swift in Sources */,
 				2C0EE4022753874D00AC2AFA /* PeerMeta.swift in Sources */,
 				2C3B7F022756A08600931264 /* Identifiers.swift in Sources */,
 				2C8A09D726751A0C00993638 /* WalletConnect.swift in Sources */,
 				2C9F0B6826BDCB2E008FA3D6 /* EthereumChain.swift in Sources */,
 				2C03D1D2269B407900EF10EA /* NetworkMonitor.swift in Sources */,
+				6EAC8FEC27B6626800F7E4DE /* Approvals.swift in Sources */,
 				2C8A09E326757FC000993638 /* AccountCellView.swift in Sources */,
 				2C6B964C26B9D92500D2C819 /* NSColor.swift in Sources */,
+				6EAC8FF027B664CB00F7E4DE /* SafariRequest.swift in Sources */,
 				2C603D0226B6E13F00956955 /* String.swift in Sources */,
 				2C773F5C2742D483007B04E7 /* SafariRequest+Helpers.swift in Sources */,
 				2C134BA627553EC500DAFBDB /* Browser.swift in Sources */,
@@ -1658,7 +1733,6 @@
 				0D059AD226C2796200EE3023 /* ApprovalSubject.swift in Sources */,
 				2C1995422674C4B900A8E370 /* ImportViewController.swift in Sources */,
 				2C8E47A326A322E8007B8354 /* RightClickTableView.swift in Sources */,
-				2C773F5F27450FBD007B04E7 /* ExtensionBridge.swift in Sources */,
 				2C96D39927623ECE00687301 /* URL.swift in Sources */,
 				2C901C472689E6D400D0926A /* ApproveTransactionViewController.swift in Sources */,
 				2CDAB3722675B3F0009F8B97 /* PasswordViewController.swift in Sources */,
@@ -1667,10 +1741,10 @@
 				2C528A16267FA8EB00CA3ADD /* Defaults.swift in Sources */,
 				2CD0B3F526A0DAA900488D92 /* NSPasteboard.swift in Sources */,
 				2CE3D012267F73C00032A62E /* Transaction.swift in Sources */,
+				6EAC8FF527B664E800F7E4DE /* ExtensionBridge.swift in Sources */,
 				2C8A09EB2675964700993638 /* ApproveViewController.swift in Sources */,
 				2C03D1D5269B428C00EF10EA /* Notification.swift in Sources */,
 				2C1995562674D0F300A8E370 /* Ethereum.swift in Sources */,
-				2CC8C5AF276A7F310083FB1B /* SafariRequest.swift in Sources */,
 				2C8A09DF267579EA00993638 /* AccountsListViewController.swift in Sources */,
 				2C917429267D2A6E00049075 /* Keychain.swift in Sources */,
 			);
@@ -1727,8 +1801,8 @@
 				F468F00327A00EEE007DD803 /* Controllers.swift in Sources */,
 				F4AD4A0027ABD64B00F613AF /* Secrets.swift in Sources */,
 				F478A37027A1541200D1398B /* PhraceCollectionViewCell.swift in Sources */,
-				2CE059492764D69D0042D844 /* SafariWebExtensionHandler.swift in Sources */,
 				2CF2559A275A46E400AE54B9 /* SafariRequest+Helpers.swift in Sources */,
+				6EAC8FF427B664E700F7E4DE /* ExtensionBridge.swift in Sources */,
 				F468B96627A70D0B00314201 /* WalletsManagerExtension.swift in Sources */,
 				2CC8C5A22767D3B30083FB1B /* GasPriceSliderTableViewCell.swift in Sources */,
 				F478A36027A149AB00D1398B /* WalletOnboardingController.swift in Sources */,
@@ -1740,6 +1814,7 @@
 				2CC6EF0D275E64810040CC62 /* UIViewController.swift in Sources */,
 				F4B4CD9327A29B9100300582 /* PasswordController.swift in Sources */,
 				2CF255A9275A48BB00AE54B9 /* Keychain.swift in Sources */,
+				6EAC8FED27B6626800F7E4DE /* Approvals.swift in Sources */,
 				2CF255A7275A48BB00AE54B9 /* PriceService.swift in Sources */,
 				F4B4CD9C27A2A54F00300582 /* SetPasswrodOnboardingController.swift in Sources */,
 				2CF25598275A46D600AE54B9 /* Strings.swift in Sources */,
@@ -1748,7 +1823,6 @@
 				2C96D38F2762317300687301 /* AccountTableViewCell.swift in Sources */,
 				2CF255A1275A47DD00AE54B9 /* Notification.swift in Sources */,
 				F468F02827A0292E007DD803 /* WalletController.swift in Sources */,
-				2CC8C5B0276A7F310083FB1B /* SafariRequest.swift in Sources */,
 				F4B4CD9E27A2A8BF00300582 /* SafariTableViewCell.swift in Sources */,
 				F4B4CD9A27A2A4A200300582 /* ChangePassword.swift in Sources */,
 				F478A36927A14A2D00D1398B /* BaseOnboardingController.swift in Sources */,
@@ -1771,8 +1845,6 @@
 				2CF255AD275A48CF00AE54B9 /* EthereumChain.swift in Sources */,
 				2CF2559C275A477F00AE54B9 /* ApprovalSubject.swift in Sources */,
 				F468F01827A019E4007DD803 /* FlagsExtension.swift in Sources */,
-				2CE0594427640EB40042D844 /* ExtensionBridge.swift in Sources */,
-				2CF255B1275A4A1800AE54B9 /* ResponseToExtension.swift in Sources */,
 				2CF2559B275A46E700AE54B9 /* AuthenticationReason.swift in Sources */,
 				2C96D3A92763D13400687301 /* DataStateView.swift in Sources */,
 				F4FB72E727A439B1008AFFF3 /* InterfaceAppearance.swift in Sources */,
@@ -1782,6 +1854,7 @@
 				F478A37827A16E9800D1398B /* WalletPhracesActionsController.swift in Sources */,
 				F468EFF327A00EEE007DD803 /* UISceneConfiguration+Scene.swift in Sources */,
 				2CF255B8275A748300AE54B9 /* ApproveTransactionViewController.swift in Sources */,
+				6EAC8FF127B664CB00F7E4DE /* SafariRequest.swift in Sources */,
 				F468F02E27A03077007DD803 /* WalletsController.swift in Sources */,
 				F468EFF227A00EEE007DD803 /* SettingsSceneDelegate.swift in Sources */,
 				F4FB72DF27A4351E008AFFF3 /* OnboardingBenefitsController.swift in Sources */,
@@ -1805,6 +1878,7 @@
 				2CF2559E275A479800AE54B9 /* WalletsManager.swift in Sources */,
 				F42D390727A9657A006DCF5B /* ExtensionService.swift in Sources */,
 				F478A37227A15BF600D1398B /* AuthService.swift in Sources */,
+				6EAC8FF327B664CB00F7E4DE /* ResponseToExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1822,11 +1896,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CE0594627640F470042D844 /* UserDefaults.swift in Sources */,
+				6EAC900027B69F4100F7E4DE /* Bundle.swift in Sources */,
 				2CE0594327640EAB0042D844 /* ExtensionBridge.swift in Sources */,
+				6EAC8FEF27B6626800F7E4DE /* Approvals.swift in Sources */,
 				F4AD4A0227ABD64B00F613AF /* Secrets.swift in Sources */,
+				6EAC900127B69F4100F7E4DE /* URL.swift in Sources */,
 				2CC8C5AD276A7EF80083FB1B /* EthereumChain.swift in Sources */,
+				6EAC8FFF27B69F0A00F7E4DE /* Keychain.swift in Sources */,
+				6EAC900827B69F9700F7E4DE /* Notifications.swift in Sources */,
 				2CC8C5B2276A7F310083FB1B /* SafariRequest.swift in Sources */,
+				6EAC8FFB27B6997000F7E4DE /* TokenaryWallet.swift in Sources */,
+				6EAC900227B69F4100F7E4DE /* Notification.swift in Sources */,
 				2CE0593F27640E300042D844 /* SafariWebExtensionHandler.swift in Sources */,
+				6EAC900327B69F4100F7E4DE /* String.swift in Sources */,
+				6EAC8FFC27B6997000F7E4DE /* WalletsManager.swift in Sources */,
 				2CE0594527640EF10042D844 /* ResponseToExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2212,6 +2295,7 @@
 		};
 		2CCEB84727594E2A00768473 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5D0CBF6DF2B94AFADB417539 /* Pods-Safari iOS.debug.xcconfig */;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CODE_SIGN_ENTITLEMENTS = "Safari iOS/Safari iOS.entitlements";
@@ -2245,6 +2329,7 @@
 		};
 		2CCEB84827594E2A00768473 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EF3A81E9809BA8605D9E6E27 /* Pods-Safari iOS.release.xcconfig */;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CODE_SIGN_ENTITLEMENTS = "Safari iOS/Safari iOS.entitlements";

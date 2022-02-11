@@ -4,6 +4,13 @@ import SafariServices
 
 let SFExtensionMessageKey = "message"
 
+fileprivate func toJSON(from object:Any) -> String? {
+    guard let data = try? JSONSerialization.data(withJSONObject: object, options: []) else {
+        return nil
+    }
+    return String(data: data, encoding: String.Encoding.utf8)
+}
+
 class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
     
     private var context: NSExtensionContext?
@@ -15,7 +22,21 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
               let id = (message as? [String: Any])?["id"] as? Int else { return }
         
         let subject = (message as? [String: Any])?["subject"] as? String
-        if subject == "getResponse" {
+        if subject == "getAccounts" {
+            let manager = WalletsManager()
+            do {
+                try manager.start()
+                self.context = context
+                let addresses = try manager.wallets.map { wallet -> String in
+                    guard let address = wallet.ethereumAddress else { throw "Failed retreiving Ethereum address" }
+                    return address
+                }
+                guard let json = toJSON(from: addresses) else { throw "JSON serialization failed" }
+                respond(with: .init(id: id, name: "getAccounts", result: json))
+            } catch {
+                respond(with: .init(id: id, name: "getAccounts", error: "An error occurred when fetching accounts: \(error.localizedDescription)"))
+            }
+        } else if subject == "getResponse" {
             #if !os(macOS)
             if let response = ExtensionBridge.getResponse(id: id) {
                 self.context = context
@@ -72,4 +93,8 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
         context = nil
     }
     
+}
+
+extension String: LocalizedError {
+    public var errorDescription: String? { return self }
 }

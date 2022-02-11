@@ -19,8 +19,6 @@ final class WalletsManager {
     private let keychain = Keychain.shared
     private(set) var wallets = [TokenaryWallet]()
 
-    private init() {}
-
     func start() throws {
         try load()
     }

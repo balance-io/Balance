@@ -18,3 +18,8 @@ target 'Balance iOS' do
   platform :ios, '15.0'
   shared_pods
 end
+
+target 'Safari iOS' do
+  platform :ios, '15.0'
+  shared_pods
+end

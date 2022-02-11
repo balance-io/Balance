@@ -125,7 +125,7 @@ const $ = (query) =>
 const render = (query, view) =>
     $(query).innerHTML = view(); // todo sanitize?
 
-document.addEventListener(`DOMContentLoaded`, () => {
+document.addEventListener(`DOMContentLoaded`, async () => {
     browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
         if (typeof request.message.address !== `undefined` && typeof request.message.balance !== `undefined` && typeof request.message.chainId !== `undefined` && typeof request.message.connected !== `undefined`) {
             if (request.message.connected === true) {
@@ -156,4 +156,12 @@ document.addEventListener(`DOMContentLoaded`, () => {
             message: `get_state`,
         },
     });
+
+
+
+    const result = await browser.runtime.sendNativeMessage("io.balance", {id: 1, subject: "getAccounts"});
+    const log = document.createElement('span')
+    log.style.color = "black"
+    log.textContent = JSON.stringify(result)
+    document.body.appendChild(log)
 });
