@@ -13,7 +13,6 @@ fileprivate func toJSON(from object:Any) throws -> String {
 
 class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
     
-    private var context: NSExtensionContext?
     private let queue = DispatchQueue(label: "SafariWebExtensionHandler", qos: .default)
     
     func beginRequest(with context: NSExtensionContext) {
@@ -26,15 +25,14 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
             let manager = WalletsManager()
             do {
                 try manager.start()
-                self.context = context
                 let addresses = try manager.wallets.map { wallet -> String in
                     guard let address = wallet.ethereumAddress else { throw "Failed retreiving Ethereum address" }
                     return address
                 }
                 let json = try toJSON(from: addresses)
-                respond(with: .init(id: id, name: "getAccounts", result: json))
+                context.respond(with: .init(id: id, name: "getAccounts", result: json))
             } catch {
-                respond(with: .init(id: id, name: "getAccounts", error: "An error occurred when fetching accounts: \(error.localizedDescription)"))
+                context.respond(with: .init(id: id, name: "getAccounts", error: "An error occurred when fetching accounts: \(error.localizedDescription)"))
             }
         } else if subject == "getChains" {
             do {
@@ -44,18 +42,16 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
                 let chains = EthereumChain.allTestnets.reduce(into: mainnets) {
                     $0[String($1.id)] = ["name": $1.name, "symbol": $1.symbol, "rpc": $1.nodeURLString, "isTestnet": true]
                 }
-                self.context = context
-                respond(with: .init(id: id, name: "getChains", result: try toJSON(from: chains)))
+                context.respond(with: .init(id: id, name: "getChains", result: try toJSON(from: chains)))
             } catch {
-                respond(with: .init(id: id, name: "getChains", error: "An error occurred when fetching accounts: \(error.localizedDescription)"))
+                context.respond(with: .init(id: id, name: "getChains", error: "An error occurred when fetching accounts: \(error.localizedDescription)"))
             }
         } else if subject == "getApprovals" {
             do {
                 guard let host = message["host"] as? String, host.count > 0 else { throw "`host` was invalid" }
-                self.context = context
-                respond(with: .init(id: id, name: "getApprovals", result: try toJSON(from: Approvals.getApprovals(for: host))))
+                context.respond(with: .init(id: id, name: "getApprovals", result: try toJSON(from: Approvals.getApprovals(for: host))))
             } catch {
-                respond(with: .init(id: id, name: "getApprovals", error: "An error occurred when fetching accounts: \(error.localizedDescription)"))
+                context.respond(with: .init(id: id, name: "getApprovals", error: "An error occurred when fetching accounts: \(error.localizedDescription)"))
             }
         } else if subject == "approve" {
             do {
@@ -63,16 +59,14 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
                 guard let account = message["account"] as? String, account.count == 42 else { throw "`account` was invalid" }
                 guard let host = message["host"] as? String, host.count > 0 else { throw "`host` was invalid" }
                 Approvals.approve(account: account, on: host)
-                self.context = context
-                respond(with: .init(id: id, name: "getChains", result: "true"))
+                context.respond(with: .init(id: id, name: "getChains", result: "true"))
             } catch {
-                respond(with: .init(id: id, name: "getChains", error: "An error occurred when fetching accounts: \(error.localizedDescription)"))
+                context.respond(with: .init(id: id, name: "getChains", error: "An error occurred when fetching accounts: \(error.localizedDescription)"))
             }
         } else if subject == "getResponse" {
             #if !os(macOS)
             if let response = ExtensionBridge.getResponse(id: id) {
-                self.context = context
-                respond(with: response)
+                context.respond(with: response)
                 ExtensionBridge.removeResponse(id: id)
             }
             #endif
@@ -82,7 +76,6 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
                   let query = String(data: data, encoding: .utf8)?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
                   let request = SafariRequest(query: query),
                   let url = URL(string: "balance://safari?request=\(query)") {
-            self.context = context
             if request.method == .switchEthereumChain || request.method == .addEthereumChain {
                 if let chain = request.switchToChain {
                     let response = ResponseToExtension(id: request.id,
@@ -90,41 +83,42 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
                                                        results: [request.address],
                                                        chainId: chain.hexStringId,
                                                        rpcURL: chain.nodeURLString)
-                    respond(with: response)
+                    context.respond(with: response)
                 } else {
                     let response = ResponseToExtension(id: request.id, name: request.name, error: "Failed to switch chain")
-                    respond(with: response)
+                    context.respond(with: response)
                 }
             } else {
                 ExtensionBridge.makeRequest(id: id)
                 #if os(macOS)
                 NSWorkspace.shared.open(url)
                 #endif
-                poll(id: id)
+                poll(id: id, context: context)
             }
         }
     }
     
-    private func poll(id: Int) {
+    private func poll(id: Int, context: NSExtensionContext) {
         if let response = ExtensionBridge.getResponse(id: id) {
-            respond(with: response)
+            context.respond(with: response)
             #if os(macOS)
             ExtensionBridge.removeResponse(id: id)
             #endif
         } else {
             queue.asyncAfter(deadline: .now() + .milliseconds(500)) { [weak self] in
-                self?.poll(id: id)
+                self?.poll(id: id, context: context)
             }
         }
     }
     
-    private func respond(with response: ResponseToExtension) {
+}
+
+extension NSExtensionContext {
+    func respond(with response: ResponseToExtension) {
         let item = NSExtensionItem()
         item.userInfo = [SFExtensionMessageKey: response.json]
-        context?.completeRequest(returningItems: [item], completionHandler: nil)
-        context = nil
+        self.completeRequest(returningItems: [item], completionHandler: nil)
     }
-    
 }
 
 extension String: LocalizedError {
