@@ -868,6 +868,7 @@
 		2CD0668826B213BB00728C20 /* Wallets */ = {
 			isa = PBXGroup;
 			children = (
+				6EAC8FEB27B6626800F7E4DE /* Approvals.swift */,
 				2CD0668926B213E500728C20 /* WalletsManager.swift */,
 				2CD0668B26B2142000728C20 /* TokenaryWallet.swift */,
 			);
@@ -924,7 +925,6 @@
 		6EAC8FEA27B6625400F7E4DE /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				6EAC8FEB27B6626800F7E4DE /* Approvals.swift */,
 				2CC8C5AE276A7F310083FB1B /* SafariRequest.swift */,
 				2C773F61274523DC007B04E7 /* ResponseToExtension.swift */,
 				2C773F5D27450B97007B04E7 /* ExtensionBridge.swift */,

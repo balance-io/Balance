@@ -85,19 +85,27 @@ if (shouldInjectProvider()) {
     getLatestConfiguration();
 }
 
-function getLatestConfiguration() {
-    const storageItem = browser.storage.local.get(window.location.host);
-    storageItem.then((storage) => {
-        const latest = storage[window.location.host];
-        var response = { results: [], chainId: "", name: "didLoadLatestConfiguration", rpcURL: "" };
-        if (typeof latest !== "undefined" && "results" in latest && latest.results.length > 0 && latest.rpcURL.length > 0) {
-            response.results = latest.results;
-            response.chainId = latest.chainId;
-            response.rpcURL = latest.rpcURL;
-        }
-        const id = new Date().getTime() + Math.floor(Math.random() * 1000);
-        window.postMessage({ direction: "from-content-script", response: response, id: id }, "*");
-    });
+async function getLatestConfiguration() {
+    const id = new Date().getTime() + Math.floor(Math.random() * 1000);
+    const approvalsResponse = await browser.runtime.sendMessage({ subject: "process-inpage-message", message: { id, subject: "getApprovals", host: window.location.host } });
+    const approvals = JSON.parse(approvalsResponse.result);
+    const storageItem = await browser.storage.local.get(window.location.host);
+    const latest = storageItem[window.location.host];
+    var response = { results: [], chainId: "", name: "didLoadLatestConfiguration", rpcURL: "" };
+    if (
+        typeof latest === "object" &&
+        Array.isArray(latest.results) &&
+        latest.results.length > 0 &&
+        typeof latest.results[0] === "string" &&
+        Array.isArray(approvals) &&
+        approvals.includes(latest.results[0].toLowerCase()) &&
+        latest.rpcURL.length > 0
+    ) {
+        response.results = latest.results;
+        response.chainId = latest.chainId;
+        response.rpcURL = latest.rpcURL;
+    }
+    window.postMessage({ direction: "from-content-script", response, id }, "*");
 }
 
 function storeConfigurationIfNeeded(request) {

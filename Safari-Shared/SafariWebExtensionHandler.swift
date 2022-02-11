@@ -18,10 +18,10 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
     
     func beginRequest(with context: NSExtensionContext) {
         guard let item = context.inputItems[0] as? NSExtensionItem,
-              let message = item.userInfo?[SFExtensionMessageKey],
-              let id = (message as? [String: Any])?["id"] as? Int else { return }
+              let message = item.userInfo?[SFExtensionMessageKey] as? [String: Any],
+              let id = message["id"] as? Int else { return }
         
-        let subject = (message as? [String: Any])?["subject"] as? String
+        let subject = message["subject"] as? String
         if subject == "getAccounts" {
             let manager = WalletsManager()
             do {
@@ -46,6 +46,25 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
                 }
                 self.context = context
                 respond(with: .init(id: id, name: "getChains", result: try toJSON(from: chains)))
+            } catch {
+                respond(with: .init(id: id, name: "getChains", error: "An error occurred when fetching accounts: \(error.localizedDescription)"))
+            }
+        } else if subject == "getApprovals" {
+            do {
+                guard let host = message["host"] as? String, host.count > 0 else { throw "`host` was invalid" }
+                self.context = context
+                respond(with: .init(id: id, name: "getApprovals", result: try toJSON(from: Approvals.getApprovals(for: host))))
+            } catch {
+                respond(with: .init(id: id, name: "getApprovals", error: "An error occurred when fetching accounts: \(error.localizedDescription)"))
+            }
+        } else if subject == "approve" {
+            do {
+                // TODO: Actually validate address
+                guard let account = message["account"] as? String, account.count == 42 else { throw "`account` was invalid" }
+                guard let host = message["host"] as? String, host.count > 0 else { throw "`host` was invalid" }
+                Approvals.approve(account: account, on: host)
+                self.context = context
+                respond(with: .init(id: id, name: "getChains", result: "true"))
             } catch {
                 respond(with: .init(id: id, name: "getChains", error: "An error occurred when fetching accounts: \(error.localizedDescription)"))
             }

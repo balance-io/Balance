@@ -24,6 +24,11 @@ enum ExtensionService {
                     self.showErrorAlert("Can't get ETH Address")
                     return
                 }
+                guard let host = request.host else {
+                    self.showErrorAlert("Can't get host")
+                    return
+                }
+                Approvals.approve(account: address, on: host)
                 let response = ResponseToExtension(id: request.id, name: request.name, results: [address], chainId: chain.hexStringId, rpcURL: chain.nodeURLString)
                 self.respondTo(request: request, response: response, on: controller)
             }, on: controller)

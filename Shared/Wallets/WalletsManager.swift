@@ -153,6 +153,9 @@ final class WalletsManager {
         defer { privateKey.resetBytes(in: 0..<privateKey.count) }
         wallets.remove(at: index)
         try keychain.removeWallet(id: wallet.id)
+        if let address = wallet.ethereumAddress {
+            Approvals.clearAllApprovals(for: address)
+        }
         postWalletsChangedNotification()
     }
 
