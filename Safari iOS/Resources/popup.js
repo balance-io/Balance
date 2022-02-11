@@ -160,8 +160,14 @@ document.addEventListener(`DOMContentLoaded`, async () => {
 
 
     const result = await browser.runtime.sendNativeMessage("io.balance", {id: 1, subject: "getAccounts"});
-    const log = document.createElement('span')
+    const log = document.createElement('div')
     log.style.color = "black"
     log.textContent = JSON.stringify(result)
     document.body.appendChild(log)
+
+    const chains = await browser.runtime.sendNativeMessage("io.balance", {id: 1, subject: "getChains"});
+    const log2 = document.createElement('div')
+    log2.style.color = "black"
+    log2.textContent = JSON.stringify(chains)
+    document.body.appendChild(log2)
 });

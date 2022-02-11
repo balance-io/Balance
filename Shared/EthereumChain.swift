@@ -2,7 +2,7 @@
 
 import Foundation
 
-enum EthereumChain: Int {
+enum EthereumChain: UInt {
     case ethereum = 1
     case arbitrum = 42161
     case polygon = 137
@@ -22,7 +22,7 @@ enum EthereumChain: Int {
     case binanceTestnet = 97
     case avalancheFuji = 43113
     
-    var id: Int {
+    var id: UInt {
         return rawValue
     }
     

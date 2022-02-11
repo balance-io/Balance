@@ -64,7 +64,7 @@ struct SafariRequest {
     }
     
     var chain: EthereumChain? {
-        if let network = json["networkId"] as? String, let networkId = Int(network) {
+        if let network = json["networkId"] as? String, let networkId = UInt(network) {
             return EthereumChain(rawValue: networkId)
         } else {
             return nil
@@ -83,7 +83,7 @@ struct SafariRequest {
     
     var switchToChain: EthereumChain? {
         if let chainId = (parameters?["chainId"] as? String)?.dropFirst(2),
-           let networkId = Int(chainId, radix: 16),
+           let networkId = UInt(chainId, radix: 16),
            let chain = EthereumChain(rawValue: networkId) {
             return chain
         } else {

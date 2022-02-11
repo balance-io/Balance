@@ -4,11 +4,11 @@ import SafariServices
 
 let SFExtensionMessageKey = "message"
 
-fileprivate func toJSON(from object:Any) -> String? {
-    guard let data = try? JSONSerialization.data(withJSONObject: object, options: []) else {
-        return nil
+fileprivate func toJSON(from object:Any) throws -> String {
+    guard let result = String(data: try JSONSerialization.data(withJSONObject: object, options: []), encoding: .utf8) else {
+        throw "Failed to serialize JSON"
     }
-    return String(data: data, encoding: String.Encoding.utf8)
+    return result
 }
 
 class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
@@ -31,10 +31,20 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
                     guard let address = wallet.ethereumAddress else { throw "Failed retreiving Ethereum address" }
                     return address
                 }
-                guard let json = toJSON(from: addresses) else { throw "JSON serialization failed" }
+                let json = try toJSON(from: addresses)
                 respond(with: .init(id: id, name: "getAccounts", result: json))
             } catch {
                 respond(with: .init(id: id, name: "getAccounts", error: "An error occurred when fetching accounts: \(error.localizedDescription)"))
+            }
+        } else if subject == "getChains" {
+            do {
+                let chains = (EthereumChain.allMainnets + EthereumChain.allTestnets).reduce(into: [String: [String: String]]()) {
+                    $0[String($1.id)] = ["name": $1.name, "symbol": $1.symbol, "rpc": $1.nodeURLString]
+                }
+                self.context = context
+                respond(with: .init(id: id, name: "getChains", result: try toJSON(from: chains)))
+            } catch {
+                respond(with: .init(id: id, name: "getChains", error: "An error occurred when fetching accounts: \(error.localizedDescription)"))
             }
         } else if subject == "getResponse" {
             #if !os(macOS)
