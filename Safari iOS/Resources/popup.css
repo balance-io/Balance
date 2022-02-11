@@ -21,10 +21,16 @@
     box-sizing: border-box;
 }
 
+html {
+    overflow-x: hidden;
+}
+
 body {
     background: linear-gradient(0deg, #F6F8FA, #F6F8FA), linear-gradient(0deg, #F7F7F8, #F7F7F8);
     font-family: var(--font);
+    height: 110%; /* TODO switch to a better way of filling the whole view with the custom background */
     margin: 25px 0 0 0;
+    overflow-x: hidden;
     padding: 0 16px;
 }
 
@@ -51,7 +57,9 @@ body {
 }
 
 .network__select {
+    background-color: #fff;
     color: #3478F6;
+    font-family: monospace;
     font-size: 18px;
     font-weight: 600;
     letter-spacing: -.38px;
@@ -94,6 +102,22 @@ body {
     line-height: 22px;
     padding: 13px 0;
     width: 270px;
+}
+
+.connected {
+    align-items: center;
+    column-gap: 10px;
+    display: flex;
+    margin-left: 16px;
+}
+
+.connected__text {
+    color: #849098;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: -.38px;
+    line-height: 21px;
+    padding-top: 1px;
 }
 
 @media (prefers-color-scheme: dark) {
