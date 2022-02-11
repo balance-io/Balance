@@ -38,8 +38,11 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
             }
         } else if subject == "getChains" {
             do {
-                let chains = (EthereumChain.allMainnets + EthereumChain.allTestnets).reduce(into: [String: [String: String]]()) {
-                    $0[String($1.id)] = ["name": $1.name, "symbol": $1.symbol, "rpc": $1.nodeURLString]
+                let mainnets = EthereumChain.allMainnets.reduce(into: [String: [String: Any]]()) {
+                    $0[String($1.id)] = ["name": $1.name, "symbol": $1.symbol, "rpc": $1.nodeURLString, "isTestnet": false]
+                }
+                let chains = EthereumChain.allTestnets.reduce(into: mainnets) {
+                    $0[String($1.id)] = ["name": $1.name, "symbol": $1.symbol, "rpc": $1.nodeURLString, "isTestnet": true]
                 }
                 self.context = context
                 respond(with: .init(id: id, name: "getChains", result: try toJSON(from: chains)))
