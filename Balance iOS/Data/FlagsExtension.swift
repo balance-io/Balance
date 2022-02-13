@@ -20,7 +20,7 @@ extension Flags {
     
     static var last_selected_network: EthereumChain {
         get {
-            guard let id = UserDefaults.standard.value(forKey: "last_selected_ethereum_chain") as? Int else { return EthereumChain.ethereum }
+            guard let id = UserDefaults.standard.value(forKey: "last_selected_ethereum_chain") as? UInt else { return EthereumChain.ethereum }
             return EthereumChain(rawValue: id) ?? .ethereum
         }
         set { UserDefaults.standard.set(newValue.rawValue, forKey: "last_selected_ethereum_chain") }

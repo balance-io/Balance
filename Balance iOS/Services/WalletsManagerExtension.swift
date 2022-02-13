@@ -31,5 +31,6 @@ extension WalletsManager {
         Flags.show_safari_extension_advice = true
         AppDelegate.migration()
         NotificationCenter.default.post(name: .walletsUpdated, object: nil)
+        Approvals.destroy()
     }
 }
