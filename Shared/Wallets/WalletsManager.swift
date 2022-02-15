@@ -111,6 +111,11 @@ final class WalletsManager {
         let id = makeNewWalletId()
         let wallet = TokenaryWallet(id: id, key: newKey)
         _ = try wallet.getAccount(password: password, coin: coin)
+        if let address = wallet.ethereumAddress {
+            try ENS.shared.resolveAddress(address: address) { (ensName) in
+                wallet.walletName = ensName ?? name
+            }
+        }
         if !onlyToKeychain {
             wallets.append(wallet)
         }
@@ -123,6 +128,11 @@ final class WalletsManager {
         let id = makeNewWalletId()
         let wallet = TokenaryWallet(id: id, key: key)
         _ = try wallet.getAccount(password: encryptPassword, coin: coin)
+        if let address = wallet.ethereumAddress {
+            try ENS.shared.resolveAddress(address: address) { (ensName) in
+                wallet.walletName = ensName ?? name
+            }
+        }
         wallets.append(wallet)
         try save(wallet: wallet)
         return wallet
