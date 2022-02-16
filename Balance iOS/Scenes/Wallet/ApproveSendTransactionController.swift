@@ -128,6 +128,15 @@ class ApproveSendTransactionController: SPDiffableTableController {
                 accessoryType: .none,
                 selectionStyle: .none,
                 action: nil
+            ),
+            SPDiffableTableRow(
+                id: "chain-id",
+                text: chain.name,
+                detail: chain.symbol,
+                icon: nil,
+                accessoryType: .none,
+                selectionStyle: .none,
+                action: nil
             )
         ]
         
@@ -140,6 +149,7 @@ class ApproveSendTransactionController: SPDiffableTableController {
                 SPDiffableTableRowSwitch(
                     id: "ludicrous-mode-row",
                     text: "Ludicrous Mode?",
+                    icon: .generateSettingsIcon(SPSafeSymbol.flame.fill.name, backgroundColor: .systemRed),
                     isOn: self.ludicrousMode,
                     action: { (isOn) in
                         self.ludicrousMode = isOn
@@ -160,7 +170,7 @@ class ApproveSendTransactionController: SPDiffableTableController {
                 selectionStyle: .none,
                 action: nil
             )
-        );  
+        );
         
         // Data
         
