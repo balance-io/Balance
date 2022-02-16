@@ -3,7 +3,7 @@
     "pins": [
       {
         "package": "Alamofire",
-        "repositoryURL": "https://github.com/Alamofire/Alamofire.git",
+        "repositoryURL": "https://github.com/Alamofire/Alamofire",
         "state": {
           "branch": null,
           "revision": "f82c23a8a7ef8dc1a49a8bfc6a96883e79121864",
@@ -123,13 +123,13 @@
         "repositoryURL": "https://github.com/sparrowcode/SPSettingsIcons",
         "state": {
           "branch": null,
-          "revision": "15b4bd1c2f870459693bcadf9ed167460dc9bb86",
-          "version": "1.0.0"
+          "revision": "a7b75ea65db0c7bad177da9f4a9da17999e343f2",
+          "version": "1.0.1"
         }
       },
       {
         "package": "SwiftyJSON",
-        "repositoryURL": "https://github.com/SwiftyJSON/SwiftyJSON.git",
+        "repositoryURL": "https://github.com/SwiftyJSON/SwiftyJSON",
         "state": {
           "branch": null,
           "revision": "b3dcd7dbd0d488e1a7077cb33b00f2083e382f07",

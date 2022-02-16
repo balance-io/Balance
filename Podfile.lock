@@ -1,7 +1,7 @@
 PODS:
   - BigInt (5.2.0)
   - BlockiesSwift (0.1.2)
-  - CryptoSwift (1.4.2)
+  - CryptoSwift (1.4.3)
   - Kingfisher (7.1.2)
   - PromiseKit (6.16.3):
     - PromiseKit/CorePromise (= 6.16.3)
@@ -71,7 +71,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   BigInt: f668a80089607f521586bbe29513d708491ef2f7
   BlockiesSwift: 22d8d56dd187e6bfd16cb8c8fbd4fd4896c3e65d
-  CryptoSwift: a532e74ed010f8c95f611d00b8bbae42e9fe7c17
+  CryptoSwift: a0799ee936271bd2253a006f1e4523df21845000
   Kingfisher: 44ed6a8504763f27bab46163adfac83f5deb240c
   PromiseKit: ed0e2a8e3f3cd59d5d98ca0a6de481a2c5c59c0b
   secp256k1.swift: a7e7a214f6db6ce5db32cc6b2b45e5c4dd633634
