@@ -14,6 +14,7 @@ extension TokenaryWallet {
             NotificationCenter.default.post(name: .walletsUpdated, object: nil)
         }
     }
+    
     //EthereumChain
     func getBalances(for chains: [EthereumChain], completion: @escaping(String?, EthereumChain) -> Void) {
         for chain in chains {

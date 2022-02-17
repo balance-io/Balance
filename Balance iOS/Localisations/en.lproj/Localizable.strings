@@ -374,4 +374,7 @@
 "wallet show phrase" = "Reveal Secret Recovery Phrase";
 
 /* No comment provided by engineer. */
+"wallet wallet created" = "Wallet Created";
+
+/* No comment provided by engineer. */
 "wallet wallets" = "Wallets";

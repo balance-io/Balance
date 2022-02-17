@@ -6,7 +6,7 @@ import SPDiffable
 class NFTListController: SPDiffableCollectionController {
     
     let placeholderView = NativePlaceholderView(
-        icon: .init(SPSafeSymbol.square.stackFill, font: .systemFont(ofSize: 48, weight: .semibold)),
+        icon: .init(SPSafeSymbol.square.stack_3dDownRightFill, font: .systemFont(ofSize: 48, weight: .semibold)),
         title: "No NFT",
         subtitle: "Here soon appear your NFT\n(development process)"
     )

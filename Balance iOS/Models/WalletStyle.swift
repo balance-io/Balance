@@ -2,9 +2,10 @@ import Foundation
 
 enum WalletStyle: String, CaseIterable {
     
-    case onlyName
-    case onlyAddress
     case nameAndAddress
+    case onlyAddress
+    case onlyName
+    
     
     var id: String { rawValue }
     

@@ -49,8 +49,9 @@ enum Texts {
         
         static var empty_title: String { NSLocalizedString("wallet empty title", comment: "") }
         static var empty_description: String { NSLocalizedString("wallet empty description", comment: "") }
-        static var open_all_wallets: String { NSLocalizedString("wallet open all wallets", comment: "") } //Hide this when no wallets
+        static var open_all_wallets: String { NSLocalizedString("wallet open all wallets", comment: "") }
         
+        static var wallet_created: String { NSLocalizedString("wallet wallet created", comment: "") }
         static var add_wallet_action: String { NSLocalizedString("wallet add wallet action", comment: "") }
         static var add_wallet_footer: String { NSLocalizedString("wallet add wallet footer", comment: "") }
         

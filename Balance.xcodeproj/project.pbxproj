@@ -151,11 +151,6 @@
 		2CFDDF4E2765417E00F89019 /* ios-specific-content.js in Resources */ = {isa = PBXBuildFile; fileRef = 2CFDDF4D2765417D00F89019 /* ios-specific-content.js */; };
 		6EAC8FE927B2D60900F7E4DE /* BlockiesAddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EAC8FE827B2D60900F7E4DE /* BlockiesAddressTableViewCell.swift */; };
 		DFC5A10D00631755121FCBE6 /* Pods_Balance_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29A83FE96A68BB9F154134EF /* Pods_Balance_iOS.framework */; };
-    F1058BCB27B9BA3C004B112D /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1058BCA27B9BA3C004B112D /* Secrets.swift */; };
-		F1058BCC27B9BA3C004B112D /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1058BCA27B9BA3C004B112D /* Secrets.swift */; };
-		F1058BCD27B9BA3C004B112D /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1058BCA27B9BA3C004B112D /* Secrets.swift */; };
-		F1058BCE27B9BA3C004B112D /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1058BCA27B9BA3C004B112D /* Secrets.swift */; };
-		F1058BCF27B9BA3C004B112D /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1058BCA27B9BA3C004B112D /* Secrets.swift */; };
 		F152213527BC170800984979 /* ENS.swift in Sources */ = {isa = PBXBuildFile; fileRef = F152213427BC170800984979 /* ENS.swift */; };
 		F152213627BC170800984979 /* ENS.swift in Sources */ = {isa = PBXBuildFile; fileRef = F152213427BC170800984979 /* ENS.swift */; };
 		F40432D527AAA082001E8F1D /* WalletExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40432D427AAA082001E8F1D /* WalletExtension.swift */; };
@@ -410,7 +405,6 @@
 		97732C86E51B06E7896F9030 /* Pods-Balance iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Balance iOS.release.xcconfig"; path = "Target Support Files/Pods-Balance iOS/Pods-Balance iOS.release.xcconfig"; sourceTree = "<group>"; };
 		B0F99598E16ED4AD726860D3 /* Pods-Balance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Balance.release.xcconfig"; path = "Target Support Files/Pods-Balance/Pods-Balance.release.xcconfig"; sourceTree = "<group>"; };
 		C289F6A7A78D99CF20B75732 /* Pods-Balance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Balance.debug.xcconfig"; path = "Target Support Files/Pods-Balance/Pods-Balance.debug.xcconfig"; sourceTree = "<group>"; };
-    F1058BCA27B9BA3C004B112D /* Secrets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Secrets.swift; path = Shared/Secrets.swift; sourceTree = SOURCE_ROOT; };
 		F152213427BC170800984979 /* ENS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ENS.swift; sourceTree = "<group>"; };
 		F3B5261B155EF9E06AAD7D4C /* Pods-Balance iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Balance iOS.debug.xcconfig"; path = "Target Support Files/Pods-Balance iOS/Pods-Balance iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		F40432D427AAA082001E8F1D /* WalletExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletExtension.swift; sourceTree = "<group>"; };
@@ -580,9 +574,9 @@
 		2C1995332674C4B900A8E370 = {
 			isa = PBXGroup;
 			children = (
+				F468EFC327A00E84007DD803 /* AppImport */,
 				F468EFC527A00EAB007DD803 /* Constants */,
 				F468EFC427A00EAA007DD803 /* ExtensionImport */,
-				F468EFC327A00E84007DD803 /* AppImport */,
 				2CCEB7A127592A1F00768473 /* Shared */,
 				2C5FF97026C84F7B00B32ACC /* Balance iOS */,
 				2C19953E2674C4B900A8E370 /* Balance macOS */,

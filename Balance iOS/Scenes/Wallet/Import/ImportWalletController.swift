@@ -22,13 +22,14 @@ class ImportWalletController: NativeOnboardingActionsController, OnboardingChild
                 title: Texts.Wallet.Import.action_new_title,
                 description: Texts.Wallet.Import.action_new_description,
                 action: {
-                    guard let parent = self.presentingViewController else { return}
+                    // guard let parent = self.presentingViewController else { return}
                     let walletsManager = WalletsManager.shared
                     do {
-                        let wallet = try walletsManager.createWallet()
+                        let _ = try walletsManager.createWallet()
                         NotificationCenter.default.post(name: .walletsUpdated, object: nil)
+                        SPAlert.present(title: Texts.Wallet.wallet_created, preset: .done)
                         self.dismiss(animated: true, completion: {
-                            Presenter.Crypto.showPhracesOnboarding(for: wallet, on: parent)
+                            //Presenter.Crypto.showPhracesOnboarding(for: wallet, on: parent)
                         })
                     } catch {
                         SPAlert.present(message: "Something went wrong. Please, restart app. Error: \(error.localizedDescription)", haptic: .error, completion: nil)

@@ -4,6 +4,7 @@ import SPDiffable
 import NativeUIKit
 import SPSafeSymbols
 import Constants
+import SPAlert
 
 class HomeController: NativeHeaderTableController {
     
@@ -64,6 +65,18 @@ class HomeController: NativeHeaderTableController {
         }
         
         setSpaceBetweenHeaderAndCells(NativeLayout.Spaces.default)
+        
+        if wallets.isEmpty && !UserSettings.added_default_wallet {
+            // Create default wallet only once
+            let walletsManager = WalletsManager.shared
+            do {
+                let walletModel = try walletsManager.createWallet()
+                walletModel.walletName = "Default Wallet"
+                UserSettings.added_default_wallet = true
+            } catch {
+                SPAlert.present(message: "Can't create default wallet. Error: \(error.localizedDescription)", haptic: .error, completion: nil)
+            }
+        }
     }
     
     // MARK: - Actions
@@ -104,13 +117,13 @@ class HomeController: NativeHeaderTableController {
                     )
                 ]
             } else {
-                var items: [SPDiffableItem] = wallets.prefix(5).map({ walletModel in
+                var items: [SPDiffableItem] = wallets.prefix(4).map({ walletModel in
                     SPDiffableWrapperItem(id: walletModel.id, model: walletModel) { item, indexPath in
                         guard let navigationController = self.navigationController else { return }
                         Presenter.Crypto.showWalletDetail(walletModel, on: navigationController)
                     }
                 })
-                if wallets.count > 5 {
+                if wallets.count > 2 {
                     items.append(
                         NativeDiffableLeftButton(
                             text: Texts.Wallet.open_all_wallets,
@@ -156,34 +169,7 @@ class HomeController: NativeHeaderTableController {
                 ),
                 footer: nil,
                 items: walletItems
-            ),
-            /*.init(
-                id: Section.changePassword.id,
-                header: SPDiffableTextHeaderFooter(text: "Danger Zone"),
-                footer: SPDiffableTextHeaderFooter(text: "You can change password and please remember new password in somewhere private places."),
-                items: [
-                    NativeDiffableLeftButton(
-                        text: "Change Password",
-                        textColor: .tintColor,
-                        detail: nil,
-                        detailColor: .clear,
-                        icon: .init(SPSafeSymbol.key.fill),
-                        accessoryType: .disclosureIndicator,
-                        action: { item,indexPath in
-                            let alertController = UIAlertController(title: "Before change password need auth with old password", message: "Please, insert old password before", preferredStyle: .alert)
-                            alertController.addAction(title: "Let's go", style: .default) { _ in
-                                AuthService.auth(cancelble: true, on: self) { success in
-                                    if success {
-                                        Presenter.Crypto.showChangePassword(on: self)
-                                    }
-                                }
-                            }
-                            alertController.addAction(title: "Cancel")
-                            self.present(alertController)
-                        }
-                    )
-                ]
-            )*/
+            )
         ]
         
         return sections
