@@ -21,7 +21,7 @@ extension SPDiffableTableDataSource.CellProvider {
             }
             
             let addName = {
-                if let name = walletModel.walletName {
+                if let name = walletModel.walletName?.trim, !name.isEmptyContent {
                     cell.titleLabel.text = name
                     cell.titleLabel.textColor = .label
                 } else {
@@ -45,7 +45,9 @@ extension SPDiffableTableDataSource.CellProvider {
                     cell.avatarView.avatarAppearance = .avatar(image)
                 }
             }
+            
             cell.layoutSubviews()
+            
             return cell
         }
     }

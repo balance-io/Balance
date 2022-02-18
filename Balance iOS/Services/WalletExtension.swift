@@ -10,7 +10,7 @@ extension TokenaryWallet {
             return UserDefaults.standard.value(forKey: "wallet_\(self.id)") as? String
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: "wallet_\(self.id)")
+            UserDefaults.standard.set(newValue?.trim, forKey: "wallet_\(self.id)")
             NotificationCenter.default.post(name: .walletsUpdated, object: nil)
         }
     }
