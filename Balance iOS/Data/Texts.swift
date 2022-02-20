@@ -66,6 +66,7 @@ enum Texts {
         static var balances_footer: String { NSLocalizedString("wallet balances footer", comment: "") } //Turn on by default
         
         static var show_empty_balances: String { NSLocalizedString("wallet balances show empty", comment: "") }
+        static var show_qr_code: String { NSLocalizedString("wallet show qr code", comment: "") }
         
         static var access_header: String { NSLocalizedString("wallet access header", comment: "") }
         static var access_footer: String { NSLocalizedString("wallet access footer", comment: "") }

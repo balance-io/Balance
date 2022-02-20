@@ -6,7 +6,6 @@ enum WalletStyle: String, CaseIterable {
     case onlyAddress
     case onlyName
     
-    
     var id: String { rawValue }
     
     var name: String {

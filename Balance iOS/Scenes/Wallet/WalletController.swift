@@ -32,7 +32,7 @@ class WalletController: NativeProfileController {
         navigationItem.largeTitleDisplayMode = .never
         headerView.avatarView.isEditable = false
         tableView.register(NativeLeftButtonTableViewCell.self)
-        configureDiffable(sections: content, cellProviders: [.balance, .buttonMultiLinesMonospaced, .button, .rowDetailMultiLines] + SPDiffableTableDataSource.CellProvider.default, headerFooterProviders: [.largeHeader])
+        configureDiffable(sections: content, cellProviders: [.balance, .address, .button, .rowDetailMultiLines] + SPDiffableTableDataSource.CellProvider.default, headerFooterProviders: [.largeHeader])
         configureHeader()
         
         headerView.emailButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body, weight: .medium)
@@ -42,11 +42,13 @@ class WalletController: NativeProfileController {
         headerView.namePlaceholderLabel.text = Texts.Wallet.no_name
         headerView.emailButton.setTitle(Texts.Wallet.change_name)
         headerView.emailButton.contentEdgeInsets.top = NativeLayout.Spaces.default_half
+        
         if let address = walletModel.ethereumAddress {
             if let image = Blockies(seed: address.lowercased()).createImage(customScale: 32) {
                 headerView.avatarView.avatarAppearance = .avatar(image)
             }
         }
+        
         headerView.nameLabel.text = walletModel.walletName
         headerView.emailButton.setImage(.init(SPSafeSymbol.pencil.circleFill))
         
@@ -88,7 +90,6 @@ class WalletController: NativeProfileController {
     }
     
     private var content: [SPDiffableSection] {
-        let address =  walletModel.ethereumAddress ?? .space
         
         var balanceItems: [SPDiffableItem] = []
         for data in self.balances.sorted(by: { CLongDouble($0.balance ?? "0")! > CLongDouble($1.balance ?? "0")! }) {
@@ -99,23 +100,24 @@ class WalletController: NativeProfileController {
             }
         }
         
-        var formattedAddress = address
-        formattedAddress.insert("\n", at: formattedAddress.index(formattedAddress.startIndex, offsetBy: (formattedAddress.count / 2)))
-        
         return [
             SPDiffableSection(
                 id: Item.info.section_id,
                 header: SPDiffableTextHeaderFooter(text: Texts.Wallet.address),
-                footer: nil,
+                footer: SPDiffableTextHeaderFooter(text: Texts.Wallet.address_footer),
                 items: [
+                    AddressDiffableItem(self.walletModel),
                     NativeDiffableLeftButton(
-                        id: "address-public-id",
-                        text: formattedAddress,
-                        textColor: .tintColor,
-                        icon: UIImage.init(SPSafeSymbol.doc.onClipboardFill),
-                        action: { _, _ in
-                            UIPasteboard.general.string = self.walletModel.ethereumAddress
-                            SPIndicator.present(title: Texts.Wallet.address_copied, preset: .done)
+                        id: "qr-code",
+                        text: Texts.Wallet.show_qr_code,
+                        textColor: .tint,
+                        icon: .init(SPSafeSymbol.qrcode),
+                        accessoryType: .none,
+                        higlightStyle: .content,
+                        action: { item, indexPath in
+                            if let tabBarController = self.tabBarController, let address = self.walletModel.ethereumAddress {
+                                Presenter.Crypto.showAddressQRCode(address: address, on: tabBarController)
+                            }
                         }
                     )
                 ]
@@ -218,6 +220,41 @@ class WalletController: NativeProfileController {
         }
         saveAction.isEnabled = false
         self.present(alertController)
+    }
+    
+    // MARK: - Formatting
+    
+    static func formatETHAddress(_ address: String, textColor: UIColor, normalFont: UIFont, higlightFont: UIFont) -> NSMutableAttributedString {
+        // Formatting
+        let text = address
+        let attrString = NSMutableAttributedString(
+            string: text,
+            attributes: [
+                NSAttributedString.Key.font : normalFont,
+                NSAttributedString.Key.foregroundColor : textColor.alpha(0.6),
+                NSAttributedString.Key.kern : 0.3
+            ]
+        )
+        
+        let ranges: [NSRange] = [
+            NSRange(location: 2, length: 4),
+            NSRange(location: 39, length: 4)
+        ]
+        
+        for range in ranges {
+            attrString.addAttribute(
+                NSAttributedString.Key.foregroundColor,
+                value: textColor,
+                range: range
+            )
+            attrString.addAttribute(
+                NSAttributedString.Key.font,
+                value: higlightFont,
+                range: range
+            )
+        }
+        
+        return attrString
     }
 }
 

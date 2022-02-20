@@ -230,6 +230,12 @@
 		F4C9909A27A956560027286B /* ApproveOperationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C9909927A956560027286B /* ApproveOperationController.swift */; };
 		F4C9909C27A95C620027286B /* SPDiffableTableDataSourceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C9909B27A95C620027286B /* SPDiffableTableDataSourceExtension.swift */; };
 		F4CF564427A8147B008C72C4 /* ApproveSendTransactionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CF564327A8147B008C72C4 /* ApproveSendTransactionController.swift */; };
+		F4DF14D527C29420004FA641 /* AddressDiffableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DF14D427C29420004FA641 /* AddressDiffableItem.swift */; };
+		F4DF14DC27C29B0A004FA641 /* QRCodeCloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DF14D727C29B0A004FA641 /* QRCodeCloseButton.swift */; };
+		F4DF14DD27C29B0A004FA641 /* QRCodeDialogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DF14D827C29B0A004FA641 /* QRCodeDialogView.swift */; };
+		F4DF14DE27C29B0A004FA641 /* QRCodeDialogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DF14D927C29B0A004FA641 /* QRCodeDialogController.swift */; };
+		F4DF14E027C29B0A004FA641 /* QRCodeDialogGradeBlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DF14DB27C29B0A004FA641 /* QRCodeDialogGradeBlurView.swift */; };
+		F4DF14E227C29B73004FA641 /* DrawService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DF14E127C29B73004FA641 /* DrawService.swift */; };
 		F4F4FA5F27A546F300DF657B /* WalletsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F4FA5E27A546F300DF657B /* WalletsListController.swift */; };
 		F4F4FA6127A547D100DF657B /* ChooseWalletExtensionResponseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F4FA6027A547D100DF657B /* ChooseWalletExtensionResponseController.swift */; };
 		F4FB72DF27A4351E008AFFF3 /* OnboardingBenefitsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FB72DE27A4351E008AFFF3 /* OnboardingBenefitsController.swift */; };
@@ -482,6 +488,12 @@
 		F4C9909927A956560027286B /* ApproveOperationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApproveOperationController.swift; sourceTree = "<group>"; };
 		F4C9909B27A95C620027286B /* SPDiffableTableDataSourceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPDiffableTableDataSourceExtension.swift; sourceTree = "<group>"; };
 		F4CF564327A8147B008C72C4 /* ApproveSendTransactionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApproveSendTransactionController.swift; sourceTree = "<group>"; };
+		F4DF14D427C29420004FA641 /* AddressDiffableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressDiffableItem.swift; sourceTree = "<group>"; };
+		F4DF14D727C29B0A004FA641 /* QRCodeCloseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeCloseButton.swift; sourceTree = "<group>"; };
+		F4DF14D827C29B0A004FA641 /* QRCodeDialogView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeDialogView.swift; sourceTree = "<group>"; };
+		F4DF14D927C29B0A004FA641 /* QRCodeDialogController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeDialogController.swift; sourceTree = "<group>"; };
+		F4DF14DB27C29B0A004FA641 /* QRCodeDialogGradeBlurView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeDialogGradeBlurView.swift; sourceTree = "<group>"; };
+		F4DF14E127C29B73004FA641 /* DrawService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawService.swift; sourceTree = "<group>"; };
 		F4F4FA5E27A546F300DF657B /* WalletsListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletsListController.swift; sourceTree = "<group>"; };
 		F4F4FA6027A547D100DF657B /* ChooseWalletExtensionResponseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseWalletExtensionResponseController.swift; sourceTree = "<group>"; };
 		F4FB72DE27A4351E008AFFF3 /* OnboardingBenefitsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingBenefitsController.swift; sourceTree = "<group>"; };
@@ -1002,6 +1014,7 @@
 		F468EFDB27A00EEE007DD803 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
+				F4DF14D627C29B0A004FA641 /* QRCode */,
 				F478A36327A149EB00D1398B /* Onboarding */,
 				F468EFDC27A00EEE007DD803 /* Layout */,
 				F468EFDE27A00EEE007DD803 /* VerticalContentScrollController.swift */,
@@ -1113,6 +1126,7 @@
 		F468F00827A012B1007DD803 /* Wallet */ = {
 			isa = PBXGroup;
 			children = (
+				F4DF14D327C291FA004FA641 /* Response */,
 				F478A36C27A1527200D1398B /* Phraces */,
 				F478A37627A161D500D1398B /* Password */,
 				F478A36127A149AF00D1398B /* Onboarding */,
@@ -1122,12 +1136,9 @@
 				F468F02727A0292E007DD803 /* WalletController.swift */,
 				F468F02D27A03077007DD803 /* WalletsController.swift */,
 				F4F4FA5E27A546F300DF657B /* WalletsListController.swift */,
-				F4F4FA6027A547D100DF657B /* ChooseWalletExtensionResponseController.swift */,
-				F468B96727A7161200314201 /* ChooseNetworkController.swift */,
 				F468B96927A71A1D00314201 /* SPDiffableTableDataSource+Chain.swift */,
-				F4CF564327A8147B008C72C4 /* ApproveSendTransactionController.swift */,
-				F4C9909927A956560027286B /* ApproveOperationController.swift */,
 				6EAC8FE827B2D60900F7E4DE /* BlockiesAddressTableViewCell.swift */,
+				F4DF14D427C29420004FA641 /* AddressDiffableItem.swift */,
 			);
 			path = Wallet;
 			sourceTree = "<group>";
@@ -1222,6 +1233,29 @@
 				F4B4CD9927A2A4A200300582 /* ChangePassword.swift */,
 			);
 			path = Password;
+			sourceTree = "<group>";
+		};
+		F4DF14D327C291FA004FA641 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				F4CF564327A8147B008C72C4 /* ApproveSendTransactionController.swift */,
+				F4C9909927A956560027286B /* ApproveOperationController.swift */,
+				F468B96727A7161200314201 /* ChooseNetworkController.swift */,
+				F4F4FA6027A547D100DF657B /* ChooseWalletExtensionResponseController.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		F4DF14D627C29B0A004FA641 /* QRCode */ = {
+			isa = PBXGroup;
+			children = (
+				F4DF14E127C29B73004FA641 /* DrawService.swift */,
+				F4DF14D727C29B0A004FA641 /* QRCodeCloseButton.swift */,
+				F4DF14D827C29B0A004FA641 /* QRCodeDialogView.swift */,
+				F4DF14D927C29B0A004FA641 /* QRCodeDialogController.swift */,
+				F4DF14DB27C29B0A004FA641 /* QRCodeDialogGradeBlurView.swift */,
+			);
+			path = QRCode;
 			sourceTree = "<group>";
 		};
 		FB5786212D81829B0FADBD25 /* Pods */ = {
@@ -1729,7 +1763,9 @@
 				F478A36727A14A0000D1398B /* OnboardingChildInterface.swift in Sources */,
 				2CF25597275A46D300AE54B9 /* Defaults.swift in Sources */,
 				2CF255A2275A47DD00AE54B9 /* String.swift in Sources */,
+				F4DF14E227C29B73004FA641 /* DrawService.swift in Sources */,
 				F468EFF827A00EEE007DD803 /* TabBarController.swift in Sources */,
+				F4DF14D527C29420004FA641 /* AddressDiffableItem.swift in Sources */,
 				F468F00227A00EEE007DD803 /* BarUsage.swift in Sources */,
 				F468EFF727A00EEE007DD803 /* SideBarSplitController.swift in Sources */,
 				2CF2559D275A479800AE54B9 /* TokenaryWallet.swift in Sources */,
@@ -1744,6 +1780,7 @@
 				F478A37027A1541200D1398B /* PhraceCollectionViewCell.swift in Sources */,
 				2CE059492764D69D0042D844 /* SafariWebExtensionHandler.swift in Sources */,
 				2CF2559A275A46E400AE54B9 /* SafariRequest+Helpers.swift in Sources */,
+				F4DF14DC27C29B0A004FA641 /* QRCodeCloseButton.swift in Sources */,
 				F468B96627A70D0B00314201 /* WalletsManagerExtension.swift in Sources */,
 				2CC8C5A22767D3B30083FB1B /* GasPriceSliderTableViewCell.swift in Sources */,
 				F478A36027A149AB00D1398B /* WalletOnboardingController.swift in Sources */,
@@ -1778,8 +1815,10 @@
 				2C96D39C2763ADE100687301 /* LocalAuthentication.swift in Sources */,
 				F468EFEF27A00EEE007DD803 /* Texts.swift in Sources */,
 				F468EFF027A00EEE007DD803 /* RootSceneDelegate.swift in Sources */,
+				F4DF14DD27C29B0A004FA641 /* QRCodeDialogView.swift in Sources */,
 				F4FB72E927A43BD3008AFFF3 /* LanguageService.swift in Sources */,
 				F468B96827A7161200314201 /* ChooseNetworkController.swift in Sources */,
+				F4DF14DE27C29B0A004FA641 /* QRCodeDialogController.swift in Sources */,
 				F468B96427A70B5600314201 /* ArchivedImportWalletController.swift in Sources */,
 				2C96D3A62763CCA000687301 /* Images.swift in Sources */,
 				2CF255AA275A48BB00AE54B9 /* SessionStorage.swift in Sources */,
@@ -1808,6 +1847,7 @@
 				F468F01F27A01F28007DD803 /* Presenter+Crypto.swift in Sources */,
 				2C40709427667A8600AB3D55 /* ImageWithLabelTableViewCell.swift in Sources */,
 				2C5FF97226C84F7B00B32ACC /* AppDelegate2.swift in Sources */,
+				F4DF14E027C29B0A004FA641 /* QRCodeDialogGradeBlurView.swift in Sources */,
 				F468F01027A01744007DD803 /* Wallet+CellProvider.swift in Sources */,
 				F478A36E27A1528E00D1398B /* WalletPhracesOnboardingController.swift in Sources */,
 				F468EFFD27A00EEE007DD803 /* Presenter.swift in Sources */,

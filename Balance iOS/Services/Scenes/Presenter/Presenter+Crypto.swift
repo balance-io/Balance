@@ -6,6 +6,10 @@ extension Presenter {
     
     enum Crypto {
         
+        static func showAddressQRCode(address: String, on controller: UIViewController) {
+            QRCodeDialogController(address: address).present(on: controller)
+        }
+        
         static func auth(cancelble: Bool, action: @escaping (Bool)->Void, on viewController: UIViewController) {
             let controller = Controllers.Crypto.auth
             controller.action = action

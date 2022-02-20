@@ -3,6 +3,7 @@ import SparrowKit
 import NativeUIKit
 
 class BlockiesAddressTableViewCell: SPTableViewCell {
+    
     let avatarView = NativeAvatarView().do {
         $0.isEditable = false
     }

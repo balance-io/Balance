@@ -35,29 +35,36 @@ class SettingsController: SPDiffableTableController {
     }
     
     internal var content: [SPDiffableSection] {
-        return [
-            .init(
-                id: "notification",
-                header: SPDiffableTextHeaderFooter(text: Texts.Settings.notification_header),
-                footer: SPDiffableTextHeaderFooter(text: Texts.Settings.notification_footer),
-                items: [
-                    SPDiffableTableRowSwitch(
-                        text: Texts.Settings.notification_title,
-                        icon: .generateSettingsIcon("bell.fill", backgroundColor: .systemRed),
-                        isOn: SPPermissions.Permission.notification.authorized,
-                        action: { state in
-                            if SPPermissions.Permission.notification.notDetermined {
-                                SPPermissions.Permission.notification.request {
+        var sections: [SPDiffableSection] = []
+        
+        if SPPermissions.Permission.notification.status == .notDetermined {
+            sections.append(
+                .init(
+                    id: "notification",
+                    header: SPDiffableTextHeaderFooter(text: Texts.Settings.notification_header),
+                    footer: SPDiffableTextHeaderFooter(text: Texts.Settings.notification_footer),
+                    items: [
+                        SPDiffableTableRowSwitch(
+                            text: Texts.Settings.notification_title,
+                            icon: .generateSettingsIcon("bell.fill", backgroundColor: .systemRed),
+                            isOn: SPPermissions.Permission.notification.authorized,
+                            action: { state in
+                                if SPPermissions.Permission.notification.notDetermined {
+                                    SPPermissions.Permission.notification.request {
+                                        self.diffableDataSource?.set(self.content, animated: true, completion: nil)
+                                    }
+                                } else {
                                     self.diffableDataSource?.set(self.content, animated: true, completion: nil)
+                                    UIApplication.shared.openSettings()
                                 }
-                            } else {
-                                self.diffableDataSource?.set(self.content, animated: true, completion: nil)
-                                UIApplication.shared.openSettings()
                             }
-                        }
-                    )
-                ]
-            ),
+                        )
+                    ]
+                )
+            )
+        }
+        
+        sections += [
             .init(
                 id: "cell-style",
                 header: SPDiffableTextHeaderFooter(text: Texts.Settings.wallet_style_header),
@@ -152,5 +159,7 @@ class SettingsController: SPDiffableTableController {
                 )
             ])
         ]
+        
+        return sections
     }
 }
