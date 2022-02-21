@@ -36,7 +36,7 @@ class AppDelegate: SPAppScenesDelegate {
         /// End debugging start.
         
         Self.migration()
-        
+    
         return true
     }
     

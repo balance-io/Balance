@@ -179,7 +179,7 @@
 "wallet delete confirm title" = "Are you sure you want to delete this forever?";
 
 /* No comment provided by engineer. */
-"wallet delete footer" = "After delete you can import again if now phrase.";
+"wallet delete footer" = "After delete you can import again if know phrase.";
 
 /* No comment provided by engineer. */
 "wallet delete header" = "DELETE WALLET - CANNOT UNDO";

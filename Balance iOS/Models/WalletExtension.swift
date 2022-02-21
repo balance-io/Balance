@@ -15,7 +15,6 @@ extension TokenaryWallet {
         }
     }
     
-    //EthereumChain
     func getBalances(for chains: [EthereumChain], completion: @escaping(String?, EthereumChain) -> Void) {
         for chain in chains {
             guard let address = self.ethereumAddress else {
@@ -45,6 +44,39 @@ extension TokenaryWallet {
                     completion(nil, chain)
                     break
                 }
+            }
+        }
+    }
+    
+    func getNFT(completion: @escaping ([NFTModel]) -> Void) {
+        
+        guard let address = self.ethereumAddress else {
+            completion([])
+            return
+        }
+        
+        let headers: HTTPHeaders = [
+            "X-API-KEY": "54f28eb29db648719c2eaaabccc414fc",
+        ]
+        
+        AF.request("https://api.opensea.io/api/v1/assets?owner=\(address)&order_direction=desc&offset=0&limit=50", headers: headers).response { response in
+            switch response.result {
+            case .success(let data):
+                var models: [NFTModel] = []
+                if let data = data, let json = try? JSON(data: data) {
+                    for assetsJSON in json["assets"].arrayValue {
+                        guard let urlString = assetsJSON["image_preview_url"].string else { continue }
+                        guard let url = URL(string: urlString) else { continue }
+                        guard let id = assetsJSON["token_id"].string else { continue }
+                        guard let name = assetsJSON["name"].string else { continue }
+                        let model = NFTModel(id: id, name: name, imageURL: url)
+                        models.append(model)
+                    }
+                }
+                completion(models)
+            case .failure(_):
+                completion([])
+                break
             }
         }
     }
