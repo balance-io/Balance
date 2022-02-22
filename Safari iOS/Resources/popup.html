@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balance</title>
+    <style>
+        :root {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        h2, h3 {
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 32px;
+            margin-top: 50px;
+            margin-bottom: 18px;
+            font-weight: 400;
+        }
+
+        h2 > b {
+            font-weight: 500;
+        }
+
+        h3 {
+            font-size: 18px;
+            font-weight: 300;
+        }
+
+        h3 > b {
+            font-weight: 400;
+        }
+
+        .grid {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .grid > a {
+            text-decoration: none;
+            color: #044C95;
+            display: flex;
+            padding: 10px 25px;
+            font-size: 20px;
+        }
+
+        .grid > a > div:first-child {
+            width: 25px;
+            padding-right: 8px;
+        }
+
+        .grid > a > div:last-child {
+            width: 80px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Welcome to <b>Balance</b></h2>
+    <h3>Here are some dapps that work<br />well with the <b>Safari Extension</b></h3>
+
+    <div class="grid">
+        <a href="https://app.uniswap.org" target="_blank">
+            <div>🦄</div>
+            <div>Uniswap</div>
+        </a>
+        
+        <a href="https://mirror.xyz" target="_blank">
+            <div>🪞</div>
+            <div>Mirror</div>
+        </a>
+
+        <a href="https://opensea.io" target="_blank">
+            <div>🖼</div>
+            <div>OpenSea</div>
+        </a>
+
+        <a href="https://showtime.io" target="_blank">
+            <div>⭐️</div>
+            <div>Showtime</div>
+        </a>
+    </div>
+</body>
+</html>

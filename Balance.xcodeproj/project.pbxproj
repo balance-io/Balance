@@ -149,6 +149,7 @@
 		2CF255BA275A749300AE54B9 /* ApproveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF255B9275A749300AE54B9 /* ApproveViewController.swift */; };
 		2CFDDF4C2765416F00F89019 /* macos-specific-content.js in Resources */ = {isa = PBXBuildFile; fileRef = 2CFDDF4B2765416F00F89019 /* macos-specific-content.js */; };
 		2CFDDF4E2765417E00F89019 /* ios-specific-content.js in Resources */ = {isa = PBXBuildFile; fileRef = 2CFDDF4D2765417D00F89019 /* ios-specific-content.js */; };
+		6E370B6B27C54A4200AE35EA /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = 6E370B6A27C54A4200AE35EA /* popup.html */; };
 		6EAC8FE927B2D60900F7E4DE /* BlockiesAddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EAC8FE827B2D60900F7E4DE /* BlockiesAddressTableViewCell.swift */; };
 		DFC5A10D00631755121FCBE6 /* Pods_Balance_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29A83FE96A68BB9F154134EF /* Pods_Balance_iOS.framework */; };
 		F152213527BC170800984979 /* ENS.swift in Sources */ = {isa = PBXBuildFile; fileRef = F152213427BC170800984979 /* ENS.swift */; };
@@ -410,6 +411,7 @@
 		2CFDDF4B2765416F00F89019 /* macos-specific-content.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "macos-specific-content.js"; sourceTree = "<group>"; };
 		2CFDDF4D2765417D00F89019 /* ios-specific-content.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "ios-specific-content.js"; sourceTree = "<group>"; };
 		4A2B4FCB9C257ECA0630805D /* Pods_Balance.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Balance.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E370B6A27C54A4200AE35EA /* popup.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = popup.html; sourceTree = "<group>"; };
 		6EAC8FE827B2D60900F7E4DE /* BlockiesAddressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockiesAddressTableViewCell.swift; sourceTree = "<group>"; };
 		97732C86E51B06E7896F9030 /* Pods-Balance iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Balance iOS.release.xcconfig"; path = "Target Support Files/Pods-Balance iOS/Pods-Balance iOS.release.xcconfig"; sourceTree = "<group>"; };
 		B0F99598E16ED4AD726860D3 /* Pods-Balance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Balance.release.xcconfig"; path = "Target Support Files/Pods-Balance/Pods-Balance.release.xcconfig"; sourceTree = "<group>"; };
@@ -848,6 +850,7 @@
 		2CCEB83127594E2A00768473 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6E370B6A27C54A4200AE35EA /* popup.html */,
 				0A0C549E27B1B6BF004510F4 /* ios-specific-middleware.js */,
 				2CC8C5A4276A52670083FB1B /* ios-specific-background.js */,
 				2CFDDF4D2765417D00F89019 /* ios-specific-content.js */,
@@ -1497,6 +1500,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CC8C5A5276A52670083FB1B /* ios-specific-background.js in Resources */,
+				6E370B6B27C54A4200AE35EA /* popup.html in Resources */,
 				2CB3845A27654EA900A189B9 /* _locales in Resources */,
 				2CB3845B27654EA900A189B9 /* images in Resources */,
 				2CE0594027640E8E0042D844 /* background.js in Resources */,
