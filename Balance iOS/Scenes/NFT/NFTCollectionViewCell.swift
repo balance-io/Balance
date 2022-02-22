@@ -5,6 +5,7 @@ import Nuke
 class NFTCollectionViewCell: SPCollectionViewCell {
     
     let indicatorView = UIActivityIndicatorView()
+    let imageContainerView = SPView()
     let imageView = SPImageView(image: nil, contentMode: .scaleAspectFill)
     let nameLabel = SPLabel().do {
         $0.font = UIFont.systemFont(ofSize: 17, weight: .medium)
@@ -23,7 +24,8 @@ class NFTCollectionViewCell: SPCollectionViewCell {
         super.commonInit()
         contentView.roundCorners(radius: 8)
         contentView.backgroundColor = .secondarySystemGroupedBackground
-        contentView.addSubview(imageView)
+        contentView.addSubview(imageContainerView)
+        imageContainerView.addSubview(imageView)
         contentView.addSubview(indicatorView)
         contentView.addSubview(nameLabel)
         contentView.layer.masksToBounds = true
@@ -35,8 +37,9 @@ class NFTCollectionViewCell: SPCollectionViewCell {
         
         if transform != .identity { return }
         
-        imageView.frame = .init(x: .zero, y: .zero, side: frame.width)
-        indicatorView.center = .init(x: imageView.frame.width / 2, y: imageView.frame.height / 2)
+        imageContainerView.frame = .init(x: .zero, y: .zero, side: contentView.frame.width)
+        imageView.setEqualSuperviewBounds()
+        indicatorView.center = .init(x: imageContainerView.frame.width / 2, y: imageContainerView.frame.height / 2)
         
         nameLabel.layoutDynamicHeight(width: contentView.layoutWidth)
         nameLabel.setXCenter()

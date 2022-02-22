@@ -3,6 +3,7 @@ import SparrowKit
 import SPDiffable
 import NativeUIKit
 import SPSafeSymbols
+import SafariServices
 import Constants
 import SPAlert
 
@@ -51,7 +52,9 @@ class HomeController: NativeHeaderTableController {
                             self.diffableDataSource?.set(self.content, animated: true)
                         }), for: .touchUpInside)
                         cell.button.addAction(.init(handler: { _ in
-                            Presenter.App.showSafariIntegrationSteps(on: self)
+                            guard let url = URL(string: Constants.instructions) else { return }
+                            UIApplication.shared.open(url)
+                            //Presenter.App.showSafariIntegrationSteps(on: self)
                         }), for: .touchUpInside)
                         return cell
                     }
