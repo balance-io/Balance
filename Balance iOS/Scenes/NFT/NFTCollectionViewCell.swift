@@ -11,6 +11,14 @@ class NFTCollectionViewCell: SPCollectionViewCell {
         $0.textColor = .label.alpha(0.9)
     }
     
+    override var isHighlighted: Bool {
+        didSet {
+            UIView.animate(withDuration: 0.14, delay: .zero, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: [.beginFromCurrentState], animations: {
+                self.transform = self.isHighlighted ? .init(scale: 0.95) : .identity
+            })
+        }
+    }
+    
     override func commonInit() {
         super.commonInit()
         contentView.roundCorners(radius: 8)
@@ -24,6 +32,9 @@ class NFTCollectionViewCell: SPCollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        
+        if transform != .identity { return }
+        
         imageView.frame = .init(x: .zero, y: .zero, side: frame.width)
         indicatorView.center = .init(x: imageView.frame.width / 2, y: imageView.frame.height / 2)
         

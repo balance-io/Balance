@@ -4,6 +4,7 @@ import NativeUIKit
 import SPSafeSymbols
 import SPDiffable
 import SPIndicator
+import SafariServices
 
 class NFTListController: SPDiffableCollectionController, UICollectionViewDelegateFlowLayout {
     
@@ -120,6 +121,13 @@ class NFTListController: SPDiffableCollectionController, UICollectionViewDelegat
             }
         }
         return sections.filter({ !$0.items.isEmpty })
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let model = diffableDataSource?.getItem(indexPath: indexPath) as? SPDiffableWrapperItem else { return }
+        guard let nftModel = model.model as? NFTModel else { return }
+        let controller = SFSafariViewController(url: nftModel.permalink)
+        self.present(controller, animated: true, completion: nil)
     }
     
     // MARK: - UICollectionViewFlowLayout
