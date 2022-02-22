@@ -229,7 +229,7 @@
 		F4C9909A27A956560027286B /* ApproveOperationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C9909927A956560027286B /* ApproveOperationController.swift */; };
 		F4C9909C27A95C620027286B /* SPDiffableTableDataSourceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C9909B27A95C620027286B /* SPDiffableTableDataSourceExtension.swift */; };
 		F4CF564427A8147B008C72C4 /* ApproveSendTransactionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CF564327A8147B008C72C4 /* ApproveSendTransactionController.swift */; };
-		F4DDCA3E27C542DC005D8C2B /* TokenaryWalletExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DDCA3D27C542DC005D8C2B /* TokenaryWalletExtension.swift */; };
+		F4DDCA4027C543AE005D8C2B /* TokenaryWalletExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DDCA3F27C543AE005D8C2B /* TokenaryWalletExtension.swift */; };
 		F4DF14D527C29420004FA641 /* AddressDiffableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DF14D427C29420004FA641 /* AddressDiffableItem.swift */; };
 		F4DF14DC27C29B0A004FA641 /* QRCodeCloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DF14D727C29B0A004FA641 /* QRCodeCloseButton.swift */; };
 		F4DF14DD27C29B0A004FA641 /* QRCodeDialogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DF14D827C29B0A004FA641 /* QRCodeDialogView.swift */; };
@@ -490,7 +490,7 @@
 		F4C9909927A956560027286B /* ApproveOperationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApproveOperationController.swift; sourceTree = "<group>"; };
 		F4C9909B27A95C620027286B /* SPDiffableTableDataSourceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPDiffableTableDataSourceExtension.swift; sourceTree = "<group>"; };
 		F4CF564327A8147B008C72C4 /* ApproveSendTransactionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApproveSendTransactionController.swift; sourceTree = "<group>"; };
-		F4DDCA3D27C542DC005D8C2B /* TokenaryWalletExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenaryWalletExtension.swift; sourceTree = "<group>"; };
+		F4DDCA3F27C543AE005D8C2B /* TokenaryWalletExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenaryWalletExtension.swift; sourceTree = "<group>"; };
 		F4DF14D427C29420004FA641 /* AddressDiffableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressDiffableItem.swift; sourceTree = "<group>"; };
 		F4DF14D727C29B0A004FA641 /* QRCodeCloseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeCloseButton.swift; sourceTree = "<group>"; };
 		F4DF14D827C29B0A004FA641 /* QRCodeDialogView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeDialogView.swift; sourceTree = "<group>"; };
@@ -915,9 +915,9 @@
 		F42CF5E927BC129D008E00DF /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				F4DDCA3D27C542DC005D8C2B /* TokenaryWalletExtension.swift */,
 				F42CF5EA27BC12A4008E00DF /* WalletStyle.swift */,
 				F4EF21EF27C3FEAD00EDEF84 /* NFTModel.swift */,
+				F4DDCA3F27C543AE005D8C2B /* TokenaryWalletExtension.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1767,7 +1767,6 @@
 				F478A35A27A1467600D1398B /* WalletTableViewCell.swift in Sources */,
 				F4B4CD9527A29DFA00300582 /* AuthController.swift in Sources */,
 				F4C9909C27A95C620027286B /* SPDiffableTableDataSourceExtension.swift in Sources */,
-				F4DDCA3E27C542DC005D8C2B /* TokenaryWalletExtension.swift in Sources */,
 				F4C9909A27A956560027286B /* ApproveOperationController.swift in Sources */,
 				F4B4CDA427A2BB9300300582 /* Image.swift in Sources */,
 				F478A36727A14A0000D1398B /* OnboardingChildInterface.swift in Sources */,
@@ -1873,6 +1872,7 @@
 				F468EFF527A00EEE007DD803 /* AppDelegate.swift in Sources */,
 				6EAC8FE927B2D60900F7E4DE /* BlockiesAddressTableViewCell.swift in Sources */,
 				2CF2559E275A479800AE54B9 /* WalletsManager.swift in Sources */,
+				F4DDCA4027C543AE005D8C2B /* TokenaryWalletExtension.swift in Sources */,
 				F42D390727A9657A006DCF5B /* ExtensionService.swift in Sources */,
 				F478A37227A15BF600D1398B /* AuthService.swift in Sources */,
 			);
