@@ -25,7 +25,7 @@ class SafariTableViewCell: SPTableViewCell {
         $0.numberOfLines = .zero
     }
     
-    let button = NativeSmallActionButton().do {
+    let runButton = NativeSmallActionButton().do {
         $0.set(title: Texts.Wallet.SafariExtension.Steps.open, icon: nil, colorise: .tintedContentGroupBackground)
     }
     
@@ -39,7 +39,7 @@ class SafariTableViewCell: SPTableViewCell {
         super.commonInit()
         selectionStyle = .none
         contentView.layoutMargins = .init(horizontal: NativeLayout.Spaces.default_less, vertical: NativeLayout.Spaces.default)
-        contentView.addSubviews(titleLabel, desсriptionLabel, button, iconView, closeButton)
+        contentView.addSubviews(titleLabel, desсriptionLabel, runButton, iconView, closeButton)
     }
     
     override func layoutSubviews() {
@@ -59,13 +59,13 @@ class SafariTableViewCell: SPTableViewCell {
         
         iconView.frame.origin.y = titleLabel.frame.origin.y
         
-        button.sizeToFit()
-        button.frame.origin.x = titleLabel.frame.origin.x
-        button.frame.origin.y = desсriptionLabel.frame.maxY + NativeLayout.Spaces.default_less
+        runButton.sizeToFit()
+        runButton.frame.origin.x = titleLabel.frame.origin.x
+        runButton.frame.origin.y = desсriptionLabel.frame.maxY + NativeLayout.Spaces.default_less
     }
     
     override func sizeThatFits(_ size: CGSize) -> CGSize {
         layoutSubviews()
-        return .init(width: size.width, height: button.frame.maxY + contentView.layoutMargins.bottom + 2)
+        return .init(width: size.width, height: runButton.frame.maxY + contentView.layoutMargins.bottom + 2)
     }
 }

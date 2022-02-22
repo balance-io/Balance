@@ -51,10 +51,9 @@ class HomeController: NativeHeaderTableController {
                             Flags.show_safari_extension_advice = false
                             self.diffableDataSource?.set(self.content, animated: true)
                         }), for: .touchUpInside)
-                        cell.button.addAction(.init(handler: { _ in
+                        cell.runButton.addAction(.init(handler: { _ in
                             guard let url = URL(string: Constants.instructions) else { return }
                             UIApplication.shared.open(url)
-                            //Presenter.App.showSafariIntegrationSteps(on: self)
                         }), for: .touchUpInside)
                         return cell
                     }
