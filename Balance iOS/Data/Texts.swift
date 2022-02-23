@@ -47,6 +47,10 @@ enum Texts {
         static var operation_not_supported: String { NSLocalizedString("wallet operation not supported", comment: "") }
         static var operation_faild: String { NSLocalizedString("wallet operation faild", comment: "") }
         
+        static var choose_wallet: String { NSLocalizedString("wallet choose wallet header", comment: "") }
+        static var send_title: String { NSLocalizedString("wallet send title", comment: "") }
+        static var send_action: String { NSLocalizedString("wallet send action", comment: "") }
+        
         static var empty_title: String { NSLocalizedString("wallet empty title", comment: "") }
         static var empty_description: String { NSLocalizedString("wallet empty description", comment: "") }
         static var open_all_wallets: String { NSLocalizedString("wallet open all wallets", comment: "") }

@@ -1,5 +1,6 @@
 import UIKit
 import SparrowKit
+import NativeUIKit
 
 enum Navigation {
     
@@ -53,7 +54,8 @@ enum Navigation {
     private static func createController(for barItem: BarRowModel.Item) -> UINavigationController {
         let controller = barItem.controller
         let allowLargeTitles = UIDevice.current.isMac ? false : true
-        let navigationController = controller.wrapToNavigationController(prefersLargeTitles: allowLargeTitles)
+        let navigationController = NativeNavigationController(rootViewController: controller)
+        navigationController.navigationBar.prefersLargeTitles = allowLargeTitles
         return navigationController
     }
 }

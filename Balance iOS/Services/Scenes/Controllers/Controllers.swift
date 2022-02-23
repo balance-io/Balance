@@ -26,11 +26,17 @@ enum Controllers {
     
     enum Crypto {
         
+        static var send: UIViewController { SendController() }
+        
         static var auth: AuthController { AuthController() }
         static var change_password: UIViewController { ChangePassword() }
 
         static var accounts: UIViewController { HomeController() }
         static var wallets: UIViewController { WalletsListController() }
+        
+        static func choose_wallet(didSelectWallet: @escaping (TokenaryWallet)->Void) -> UIViewController {
+            ChooseWalletController(didSelectWallet: didSelectWallet)
+        }
         
         static func wallet_detail(_ walletModel: TokenaryWallet) -> WalletController {
             return WalletController(with: walletModel)

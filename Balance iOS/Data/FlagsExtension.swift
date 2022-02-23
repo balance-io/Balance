@@ -25,4 +25,12 @@ extension Flags {
         }
         set { UserDefaults.standard.set(newValue.rawValue, forKey: "last_selected_ethereum_chain") }
     }
+    
+    static var last_selected_wallet: TokenaryWallet? {
+        get {
+            guard let id = UserDefaults.standard.value(forKey: "last_selected_wallet") as? String else { return nil }
+            return WalletsManager.shared.wallets.first(where: { $0.id == id })
+        }
+        set { UserDefaults.standard.set(newValue?.id, forKey: "last_selected_wallet") }
+    }
 }

@@ -68,6 +68,11 @@ extension Presenter {
             viewController.present(controller)
         }
         
+        static func chooseWallet(didSelectWallet: @escaping ((TokenaryWallet) -> Void), on navigationController: UINavigationController) {
+            let controller = Controllers.Crypto.choose_wallet(didSelectWallet: didSelectWallet)
+            navigationController.pushViewController(controller, completion: nil)
+        }
+        
         enum Extension {
             
             static func showLinkWallet(didSelectWallet: @escaping ((TokenaryWallet, EthereumChain, ChooseWalletExtensionResponseController) -> Void), on viewController: UIViewController) {

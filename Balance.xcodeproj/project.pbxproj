@@ -237,6 +237,8 @@
 		F4DF14DE27C29B0A004FA641 /* QRCodeDialogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DF14D927C29B0A004FA641 /* QRCodeDialogController.swift */; };
 		F4DF14E027C29B0A004FA641 /* QRCodeDialogGradeBlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DF14DB27C29B0A004FA641 /* QRCodeDialogGradeBlurView.swift */; };
 		F4DF14E227C29B73004FA641 /* DrawService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DF14E127C29B73004FA641 /* DrawService.swift */; };
+		F4E33EA127C64196004C380B /* SendController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E33EA027C64196004C380B /* SendController.swift */; };
+		F4E33EA327C6474A004C380B /* ChooseWalletController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E33EA227C6474A004C380B /* ChooseWalletController.swift */; };
 		F4EF21F027C3FEAD00EDEF84 /* NFTModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EF21EF27C3FEAD00EDEF84 /* NFTModel.swift */; };
 		F4EF21F227C3FF4900EDEF84 /* NFTCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EF21F127C3FF4900EDEF84 /* NFTCollectionViewCell.swift */; };
 		F4EF21F427C41B8700EDEF84 /* NFT+HeaderFooterProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EF21F327C41B8700EDEF84 /* NFT+HeaderFooterProvider.swift */; };
@@ -499,6 +501,8 @@
 		F4DF14D927C29B0A004FA641 /* QRCodeDialogController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeDialogController.swift; sourceTree = "<group>"; };
 		F4DF14DB27C29B0A004FA641 /* QRCodeDialogGradeBlurView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeDialogGradeBlurView.swift; sourceTree = "<group>"; };
 		F4DF14E127C29B73004FA641 /* DrawService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawService.swift; sourceTree = "<group>"; };
+		F4E33EA027C64196004C380B /* SendController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendController.swift; sourceTree = "<group>"; };
+		F4E33EA227C6474A004C380B /* ChooseWalletController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseWalletController.swift; sourceTree = "<group>"; };
 		F4EF21EF27C3FEAD00EDEF84 /* NFTModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTModel.swift; sourceTree = "<group>"; };
 		F4EF21F127C3FF4900EDEF84 /* NFTCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTCollectionViewCell.swift; sourceTree = "<group>"; };
 		F4EF21F327C41B8700EDEF84 /* NFT+HeaderFooterProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NFT+HeaderFooterProvider.swift"; sourceTree = "<group>"; };
@@ -1005,6 +1009,7 @@
 		F468EFD427A00EEE007DD803 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				F4E33E9F27C6418F004C380B /* Sent */,
 				F42CF5EC27BC2062008E00DF /* NFT */,
 				F468F01127A01925007DD803 /* App */,
 				F478A35B27A1468900D1398B /* Home */,
@@ -1148,6 +1153,7 @@
 				F468F02727A0292E007DD803 /* WalletController.swift */,
 				F468F02D27A03077007DD803 /* WalletsController.swift */,
 				F4F4FA5E27A546F300DF657B /* WalletsListController.swift */,
+				F4E33EA227C6474A004C380B /* ChooseWalletController.swift */,
 				F468B96927A71A1D00314201 /* SPDiffableTableDataSource+Chain.swift */,
 				6EAC8FE827B2D60900F7E4DE /* BlockiesAddressTableViewCell.swift */,
 				F4DF14D427C29420004FA641 /* AddressDiffableItem.swift */,
@@ -1268,6 +1274,14 @@
 				F4DF14DB27C29B0A004FA641 /* QRCodeDialogGradeBlurView.swift */,
 			);
 			path = QRCode;
+			sourceTree = "<group>";
+		};
+		F4E33E9F27C6418F004C380B /* Sent */ = {
+			isa = PBXGroup;
+			children = (
+				F4E33EA027C64196004C380B /* SendController.swift */,
+			);
+			path = Sent;
 			sourceTree = "<group>";
 		};
 		FB5786212D81829B0FADBD25 /* Pods */ = {
@@ -1762,6 +1776,7 @@
 				F4B4CD9727A2A04D00300582 /* AuthOnboardingController.swift in Sources */,
 				2CF255A5275A48BB00AE54B9 /* ReviewRequester.swift in Sources */,
 				2CF255B6275A746000AE54B9 /* AccountsListViewController.swift in Sources */,
+				F4E33EA327C6474A004C380B /* ChooseWalletController.swift in Sources */,
 				F468F00A27A012BC007DD803 /* HomeController.swift in Sources */,
 				2C96D3A42763C6A800687301 /* UIView.swift in Sources */,
 				F468EFFB27A00EEE007DD803 /* VerticalContentScrollController.swift in Sources */,
@@ -1841,6 +1856,7 @@
 				2CF255AD275A48CF00AE54B9 /* EthereumChain.swift in Sources */,
 				2CF2559C275A477F00AE54B9 /* ApprovalSubject.swift in Sources */,
 				F468F01827A019E4007DD803 /* FlagsExtension.swift in Sources */,
+				F4E33EA127C64196004C380B /* SendController.swift in Sources */,
 				2CE0594427640EB40042D844 /* ExtensionBridge.swift in Sources */,
 				2CF255B1275A4A1800AE54B9 /* ResponseToExtension.swift in Sources */,
 				2CF2559B275A46E700AE54B9 /* AuthenticationReason.swift in Sources */,
