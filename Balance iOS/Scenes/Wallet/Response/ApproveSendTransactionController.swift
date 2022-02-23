@@ -20,6 +20,9 @@ class ApproveSendTransactionController: SPDiffableTableController {
     
     private var ludicrousMode = false
     private var referenceGasPriceGwei: UInt
+    private var ludicrousReferenceGasPriceGwei: UInt {
+        get { UInt(ceil(Double(referenceGasPriceGwei) * 1.5)) }
+    }
     
     // MARK: - Views
     
@@ -153,8 +156,7 @@ class ApproveSendTransactionController: SPDiffableTableController {
                     isOn: self.ludicrousMode,
                     action: { (isOn) in
                         self.ludicrousMode = isOn
-                        self.referenceGasPriceGwei = UInt(ceil(Double(self.referenceGasPriceGwei) * (isOn ? 1.5 : 0.5)))
-                        self.transaction.setGasPrice(value: self.referenceGasPriceGwei * UInt(Constants.Ethereum.Units.gwei))
+                        self.transaction.setGasPrice(value: (isOn ? self.ludicrousReferenceGasPriceGwei : self.referenceGasPriceGwei) * UInt(Constants.Ethereum.Units.gwei))
                         self.redraw()
                     }
                 )
