@@ -64,15 +64,15 @@ extension TokenaryWallet {
             case .success(let data):
                 var models: [NFTModel] = []
                 if let data = data, let json = try? JSON(data: data) {
-                    // print(json.debugDescription)
+                    //print(json.debugDescription)
                     for assetsJSON in json["assets"].arrayValue {
                         guard let urlString = assetsJSON["image_preview_url"].string else { continue }
                         guard let url = URL(string: urlString) else { continue }
-                        guard let id = assetsJSON["token_id"].string else { continue }
+                        guard let id = assetsJSON["id"].int else { continue }
                         guard let name = assetsJSON["name"].string else { continue }
                         guard let permaUrlString = assetsJSON["permalink"].string else { continue }
                         guard let permaurl = URL(string: permaUrlString) else { continue }
-                        let model = NFTModel(id: id, name: name, permalink: permaurl, imageURL: url)
+                        let model = NFTModel(id: "\(id)", name: name, permalink: permaurl, imageURL: url)
                         models.append(model)
                     }
                 }

@@ -1089,9 +1089,9 @@
 		F468EFE427A00EEE007DD803 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				F468EFE727A00EEE007DD803 /* Models */,
 				F468EFE527A00EEE007DD803 /* Navigation+Cache.swift */,
 				F468EFE627A00EEE007DD803 /* Navigation.swift */,
-				F468EFE727A00EEE007DD803 /* Models */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";

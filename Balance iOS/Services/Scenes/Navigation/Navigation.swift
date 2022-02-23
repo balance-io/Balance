@@ -29,7 +29,8 @@ enum Navigation {
     // MARK: - Internal
     
     private static func basicBars(for usage: BarUsage) -> [BarRowModel] {
-        let barItems = BarRowModel.Item.allCases
+        // Sent hidden becouse in develop process now.
+        let barItems = [BarRowModel.Item.wallets, .nft, .settings]
         return barItems.map { (barItem) -> BarRowModel in
             let identifier = usage.id + barItem.id
             return BarRowModel.init(

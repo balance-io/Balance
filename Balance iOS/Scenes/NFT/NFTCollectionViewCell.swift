@@ -1,12 +1,19 @@
 import UIKit
 import SparrowKit
 import Nuke
+import SVGKit
+import WebKit
+
+internal var cachedSVGs: [(url: URL, image: UIImage)] = []
 
 class NFTCollectionViewCell: SPCollectionViewCell {
     
     let indicatorView = UIActivityIndicatorView()
-    let imageContainerView = SPView()
+    let imageContainerView = SPView().do {
+        $0.masksToBounds = true
+    }
     let imageView = SPImageView(image: nil, contentMode: .scaleAspectFill)
+    
     let nameLabel = SPLabel().do {
         $0.font = UIFont.systemFont(ofSize: 17, weight: .medium)
         $0.textColor = .label.alpha(0.9)
@@ -49,7 +56,32 @@ class NFTCollectionViewCell: SPCollectionViewCell {
     func setNFT(_ model: NFTModel) {
         nameLabel.text = model.name
         let url = model.imageURL
-        Nuke.loadImage(with: url, into: self)
+        if url.absoluteString.hasSuffix(".svg") {
+            if let data = cachedSVGs.first(where: { $0.url == url }) {
+                self.imageView.image = data.image
+                self.indicatorView.stopAnimating()
+            } else {
+                DispatchQueue.global(qos: .background).async {
+                    let data = try? Data(contentsOf: url)
+                    let receivedimage: SVGKImage = SVGKImage(data: data)
+                    DispatchQueue.main.async {
+                        if let image = receivedimage.uiImage {
+                            self.imageView.image = image
+                            cachedSVGs.append((url: url, image: image))
+                            self.indicatorView.stopAnimating()
+                        }
+                    }
+                }
+            }
+        } else {
+            Nuke.loadImage(with: url, into: self)
+        }
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        imageView.image = nil
+        indicatorView.startAnimating()
     }
 }
 

@@ -27,6 +27,7 @@ let package = Package(
         .package(url: "https://github.com/sparrowcode/SPSafeSymbols", .upToNextMajor(from: "1.0.5")),
         .package(url: "https://github.com/sparrowcode/SPSettingsIcons", .upToNextMajor(from: "1.0.1")),
         .package(url: "https://github.com/ivanvorobei/SPPermissions", .upToNextMajor(from: "7.1.5")),
+        .package(url: "https://github.com/SVGKit/SVGKit", .upToNextMajor(from: "3.0.0")),
         .package(name: "Intercom", url: "https://github.com/intercom/intercom-ios", .upToNextMajor(from: "11.1.2")),
         .package(path: "Constants")
     ],
@@ -49,6 +50,7 @@ let package = Package(
                 .product(name: "SPPermissionsNotification", package: "SPPermissions"),
                 .product(name: "SPPermissionsFaceID", package: "SPPermissions"),
                 .product(name: "Nuke", package: "Nuke"),
+                .product(name: "SVGKit", package: "SVGKit"),
                 .product(name: "Constants", package: "Constants")
             ]
         )
