@@ -78,21 +78,27 @@ class NFTListController: SPDiffableCollectionController, UICollectionViewDelegat
         updateData()
         
         NotificationCenter.default.addObserver(forName: .walletsUpdated, object: nil, queue: nil) { _ in
-            self.diffableDataSource?.set(self.content, animated: true, completion: nil)
+            self.updateData()
         }
     }
     
     @objc func updateData() {
+        
+        let updateVisibleDiffable = {
+            self.diffableDataSource?.set(self.content, animated: true, completion: {
+                self.placeholderView.setVisible(self.data.isEmpty, animated: true)
+            })
+        }
+        
         self.data = []
+        updateVisibleDiffable()
         
         let wallets = WalletsManager.shared.wallets
         for wallet in wallets {
             wallet.getNFT(completion: { models in
                 if !models.isEmpty {
                     self.data.append(Data(wallet: wallet, nfts: models))
-                    self.diffableDataSource?.set(self.content, animated: true, completion: {
-                        self.placeholderView.setVisible(self.data.isEmpty, animated: true)
-                    })
+                    updateVisibleDiffable()
                 }
             })
         }
