@@ -8,7 +8,31 @@ import BlockiesSwift
 import SPIndicator
 import Constants
 
-class WalletController: NativeProfileController {
+class WalletHeaderController: NativeHeaderTableController {
+
+    // MARK: - Views
+    
+    public let headerView = NativeProfileHeaderView()
+    
+    // MARK: - Init
+    
+    public init(style: UITableView.Style = .insetGrouped) {
+        super.init(style: style, headerView: headerView)
+    }
+    
+    public required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Lifecycle
+    
+    open override func viewDidLoad() {
+        super.viewDidLoad()
+        navigationItem.title = .empty
+    }
+}
+
+class WalletController: WalletHeaderController {
     
     internal var walletModel: TokenaryWallet
     internal var balances: [BalanceData] = []
