@@ -62,13 +62,14 @@ class NFTCollectionViewCell: SPCollectionViewCell {
                 self.indicatorView.stopAnimating()
             } else {
                 DispatchQueue.global(qos: .background).async {
-                    let data = try? Data(contentsOf: url)
-                    let receivedimage: SVGKImage = SVGKImage(data: data)
-                    DispatchQueue.main.async {
-                        if let image = receivedimage.uiImage {
-                            self.imageView.image = image
-                            cachedSVGs.append((url: url, image: image))
-                            self.indicatorView.stopAnimating()
+                    if let data = try? Data(contentsOf: url) {
+                        let receivedimage = SVGKImage(data: data)
+                        DispatchQueue.main.async {
+                            if let image = receivedimage?.uiImage {
+                                self.imageView.image = image
+                                cachedSVGs.append((url: url, image: image))
+                                self.indicatorView.stopAnimating()
+                            }
                         }
                     }
                 }
