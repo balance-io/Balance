@@ -4,6 +4,7 @@ import SPDiffable
 import Constants
 import NativeUIKit
 import SPSafeSymbols
+import SPIndicator
 
 class SendController: SPDiffableTableController {
     
@@ -31,7 +32,9 @@ class SendController: SPDiffableTableController {
         navigationItem.title = Texts.Wallet.send_title + " (Development)"
         view.backgroundColor = .systemGroupedBackground
         
+        tableView.register(SendRecipientTableCell.self)
         tableView.register(WalletTableViewCell.self)
+        tableView.contentInset.bottom = NativeLayout.Spaces.Scroll.bottom_inset_reach_end
         
         if let navigationController = self.navigationController as? NativeNavigationController {
             let toolBarView = NativeLargeActionToolBarView()
@@ -41,7 +44,16 @@ class SendController: SPDiffableTableController {
         
         configureDiffable(
             sections: content,
-            cellProviders: [.wallet, .network] + SPDiffableTableDataSource.CellProvider.default,
+            cellProviders: [.wallet, .network] + SPDiffableTableDataSource.CellProvider.default + [
+                .init(clouser: { tableView, indexPath, item in
+                    guard let _ = item as? DiffableSendRecipientItem else { return nil }
+                    let cell = tableView.dequeueReusableCell(withClass: SendRecipientTableCell.self, for: indexPath)
+                    cell.pasteButton.addAction(.init(handler: { _ in
+                        SPIndicator.present(title: "Pasted", preset: .done)
+                    }), for: .touchUpInside)
+                    return cell
+                })
+            ],
             headerFooterProviders: [.largeHeader]
         )
         
@@ -67,21 +79,6 @@ class SendController: SPDiffableTableController {
         }
         
         return [
-            SPDiffableSection(
-                id: "assets",
-                header: SPDiffableTextHeaderFooter(text: "Assets"),
-                footer: nil,
-                items: [
-                    SPDiffableTableRow(
-                        text: "Ether",
-                        detail: "ETH",
-                        icon: .generateSettingsIcon(SPSafeSymbol.wallet.passFill.name, backgroundColor: .systemIndigo),
-                        accessoryType: .disclosureIndicator,
-                        selectionStyle: .none,
-                        action: nil
-                    )
-                ]
-            ),
             .init(
                 id: "from",
                 header: SPDiffableTextHeaderFooter(text: "From Wallet"),
@@ -90,15 +87,26 @@ class SendController: SPDiffableTableController {
             ),
             .init(
                 id: "amount",
-                header: SPDiffableTextHeaderFooter(text: "Amount"),
+                header: nil,
                 footer: nil,
                 items: [
+                    SPDiffableTableRow(
+                        text: "Ether",
+                        detail: "ETH",
+                        icon: .generateSettingsIcon(
+                            SPSafeSymbol.wallet.passFill.name,
+                            backgroundColor: .systemIndigo
+                        ),
+                        accessoryType: .disclosureIndicator,
+                        selectionStyle: .none,
+                        action: nil
+                    ),
                     SPDiffableTableRowTextField(
                         id: "amount",
                         text: nil,
                         placeholder: "Amount",
                         autocorrectionType: .no,
-                        keyboardType: .numberPad,
+                        keyboardType: .decimalPad,
                         autocapitalizationType: .none,
                         clearButtonMode: .always,
                         delegate: nil
@@ -122,9 +130,9 @@ class SendController: SPDiffableTableController {
             .init(
                 id: "to-section",
                 header: SPDiffableTextHeaderFooter(text: "To Wallet"),
-                footer: SPDiffableTextHeaderFooter(text: "You can scan QR-Code or paste text with wallet address."),
+                footer: nil,
                 items: [
-                    SPDiffableTableRow(text: "From Wallet Cell", detail: "Draft")
+                    DiffableSendRecipientItem()
                 ]
             ),
         ]

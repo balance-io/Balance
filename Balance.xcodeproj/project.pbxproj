@@ -230,6 +230,8 @@
 		F4C9909A27A956560027286B /* ApproveOperationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C9909927A956560027286B /* ApproveOperationController.swift */; };
 		F4C9909C27A95C620027286B /* SPDiffableTableDataSourceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C9909B27A95C620027286B /* SPDiffableTableDataSourceExtension.swift */; };
 		F4CF564427A8147B008C72C4 /* ApproveSendTransactionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CF564327A8147B008C72C4 /* ApproveSendTransactionController.swift */; };
+		F4D1072127CCE0F400348297 /* SendRecipientTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D1072027CCE0F400348297 /* SendRecipientTableCell.swift */; };
+		F4D1072327CCE1AB00348297 /* DiffableSendRecipientItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D1072227CCE1AB00348297 /* DiffableSendRecipientItem.swift */; };
 		F4DDCA4027C543AE005D8C2B /* TokenaryWalletExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DDCA3F27C543AE005D8C2B /* TokenaryWalletExtension.swift */; };
 		F4DF14D527C29420004FA641 /* AddressDiffableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DF14D427C29420004FA641 /* AddressDiffableItem.swift */; };
 		F4DF14DC27C29B0A004FA641 /* QRCodeCloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DF14D727C29B0A004FA641 /* QRCodeCloseButton.swift */; };
@@ -494,6 +496,8 @@
 		F4C9909927A956560027286B /* ApproveOperationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApproveOperationController.swift; sourceTree = "<group>"; };
 		F4C9909B27A95C620027286B /* SPDiffableTableDataSourceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPDiffableTableDataSourceExtension.swift; sourceTree = "<group>"; };
 		F4CF564327A8147B008C72C4 /* ApproveSendTransactionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApproveSendTransactionController.swift; sourceTree = "<group>"; };
+		F4D1072027CCE0F400348297 /* SendRecipientTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendRecipientTableCell.swift; sourceTree = "<group>"; };
+		F4D1072227CCE1AB00348297 /* DiffableSendRecipientItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffableSendRecipientItem.swift; sourceTree = "<group>"; };
 		F4DDCA3F27C543AE005D8C2B /* TokenaryWalletExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenaryWalletExtension.swift; sourceTree = "<group>"; };
 		F4DF14D427C29420004FA641 /* AddressDiffableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressDiffableItem.swift; sourceTree = "<group>"; };
 		F4DF14D727C29B0A004FA641 /* QRCodeCloseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeCloseButton.swift; sourceTree = "<group>"; };
@@ -1009,7 +1013,7 @@
 		F468EFD427A00EEE007DD803 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				F4E33E9F27C6418F004C380B /* Sent */,
+				F4E33E9F27C6418F004C380B /* Send */,
 				F42CF5EC27BC2062008E00DF /* NFT */,
 				F468F01127A01925007DD803 /* App */,
 				F478A35B27A1468900D1398B /* Home */,
@@ -1276,12 +1280,14 @@
 			path = QRCode;
 			sourceTree = "<group>";
 		};
-		F4E33E9F27C6418F004C380B /* Sent */ = {
+		F4E33E9F27C6418F004C380B /* Send */ = {
 			isa = PBXGroup;
 			children = (
 				F4E33EA027C64196004C380B /* SendController.swift */,
+				F4D1072027CCE0F400348297 /* SendRecipientTableCell.swift */,
+				F4D1072227CCE1AB00348297 /* DiffableSendRecipientItem.swift */,
 			);
-			path = Sent;
+			path = Send;
 			sourceTree = "<group>";
 		};
 		FB5786212D81829B0FADBD25 /* Pods */ = {
@@ -1810,6 +1816,7 @@
 				2CE059492764D69D0042D844 /* SafariWebExtensionHandler.swift in Sources */,
 				2CF2559A275A46E400AE54B9 /* SafariRequest+Helpers.swift in Sources */,
 				F4DF14DC27C29B0A004FA641 /* QRCodeCloseButton.swift in Sources */,
+				F4D1072327CCE1AB00348297 /* DiffableSendRecipientItem.swift in Sources */,
 				F468B96627A70D0B00314201 /* WalletsManagerExtension.swift in Sources */,
 				2CC8C5A22767D3B30083FB1B /* GasPriceSliderTableViewCell.swift in Sources */,
 				F478A36027A149AB00D1398B /* WalletOnboardingController.swift in Sources */,
@@ -1887,6 +1894,7 @@
 				F434577E27BB83AE00160951 /* Secrets.swift in Sources */,
 				2CF255A8275A48BB00AE54B9 /* NetworkMonitor.swift in Sources */,
 				F152213627BC170800984979 /* ENS.swift in Sources */,
+				F4D1072127CCE0F400348297 /* SendRecipientTableCell.swift in Sources */,
 				2C8E88A2275FA596003EB8DB /* ImportViewController.swift in Sources */,
 				2C5FF97426C84F7B00B32ACC /* SceneDelegate.swift in Sources */,
 				F468EFF527A00EEE007DD803 /* AppDelegate.swift in Sources */,
