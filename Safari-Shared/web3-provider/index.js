@@ -10,19 +10,25 @@ import IdMapping from "./id_mapping";
 import { EventEmitter } from "events";
 import isUtf8 from "isutf8";
 
-class TokenaryWeb3Provider extends EventEmitter {
-    constructor(config) {
+class EthereumProvider extends EventEmitter {
+    constructor(config, appearAs = 0, postMessage) {
         super();
         this.setConfig(config);
         this.idMapping = new IdMapping();
         this.callbacks = new Map();
         this.wrapResults = new Map();
-        this.isMetaMask = true;
-        this.isTokenary = true;
         this.emitConnect(config.chainId);
         this.didGetLatestConfiguration = false;
         this.pendingPayloads = [];
-        
+        this._postMessage = postMessage;
+
+        if (appearAs === 1) {
+            this.isMetaMask = true;
+            this._metamask = true;
+        } else {
+            this.isBalance = true;
+        }
+
         const originalOn = this.on;
         this.on = (...args) => {
             if (args[0] == "connect") {
@@ -68,7 +74,7 @@ class TokenaryWeb3Provider extends EventEmitter {
     request(payload) {
         // this points to window in methods like web3.eth.getAccounts()
         var that = this;
-        if (!(this instanceof TokenaryWeb3Provider)) {
+        if (!(this instanceof EthereumProvider)) {
             that = window.ethereum;
         }
         return that._request(payload, false);
@@ -102,7 +108,7 @@ class TokenaryWeb3Provider extends EventEmitter {
      */
     send(payload) {
         var that = this;
-        if (!(this instanceof TokenaryWeb3Provider)) {
+        if (!(this instanceof EthereumProvider)) {
             that = window.ethereum;
         }
         var requestPayload = {};
@@ -122,7 +128,7 @@ class TokenaryWeb3Provider extends EventEmitter {
         console.log("sendAsync(data, callback) is deprecated, please use window.ethereum.request(data) instead.");
         // this points to window in methods like web3.eth.getAccounts()
         var that = this;
-        if (!(this instanceof TokenaryWeb3Provider)) {
+        if (!(this instanceof EthereumProvider)) {
             that = window.ethereum;
         }
         if (Array.isArray(payload)) {
@@ -326,8 +332,8 @@ class TokenaryWeb3Provider extends EventEmitter {
                 networkId: this.net_version(),
                 host: window.location.host
             };
-            if (window.tokenary.postMessage) {
-                window.tokenary.postMessage(object);
+            if (this._postMessage) {
+                this._postMessage(object);
             } else {
                 // old clients
                 window.webkit.messageHandlers[handler].postMessage(object);
@@ -383,11 +389,20 @@ class TokenaryWeb3Provider extends EventEmitter {
     }
 }
 
-window.tokenary = {Provider: TokenaryWeb3Provider, postMessage: null};
-
 (function() {
+    // https://github.com/floating/frame-extension/blob/5b984364a364f1ed93106cea62c74503a3a1e364/src/frame.js#L28-L39
+    // 0 is Balance
+    // 1 is MetaMask
+    const appearAs = tryParse(localStorage.getItem("__balanceAppearAs__"), 0) || 0;
+
+    const Provider = appearAs === 1
+            ? class MetaMaskProvider extends EthereumProvider {}
+            : class BalanceProvider extends EthereumProvider {};
+
     var config = {address: "", chainId: "0x1", rpcUrl: "https://mainnet.infura.io/v3/3f99b6096fda424bbb26e17866dcddfc"};
-    window.ethereum = new tokenary.Provider(config);
+    window.ethereum = new Provider(config, appearAs, (jsonString) => {
+        window.postMessage({direction: "from-page-script", message: jsonString}, "*");
+    });
     
     const handler = {
         get(target, property) {
@@ -395,10 +410,6 @@ window.tokenary = {Provider: TokenaryWeb3Provider, postMessage: null};
         }
     }
     window.web3 = new Proxy(window.ethereum, handler);
-    
-    tokenary.postMessage = (jsonString) => {
-        window.postMessage({direction: "from-page-script", message: jsonString}, "*");
-    };
 })();
 
 window.addEventListener("message", function(event) {
@@ -438,3 +449,11 @@ window.addEventListener("message", function(event) {
         }
     }
 });
+
+function tryParse(value, defaultValue) {
+    try {
+        return JSON.parse(value)
+    } catch {
+        return defaultValue
+    }
+}

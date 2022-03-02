@@ -56,7 +56,26 @@
         .grid > a > div:last-child {
             width: 80px;
         }
+
+        #appear-as-button {
+            display: block;
+            width: 240px;
+            margin: 20px auto 0;
+            padding: 12px 5px !important;
+            background: rgb(96, 137, 247);
+            border: 0 none;
+            border-radius: 20px;
+            font-size: 16px;
+            color: white;
+            font-weight: bold;
+        }
+
+        #appear-as-button.hidden {
+            display: none;
+        }
     </style>
+
+    <script type="module" src="popup.js"></script>
 </head>
 <body>
     <h2>Welcome to <b>Balance</b></h2>
@@ -83,5 +102,7 @@
             <div>Showtime</div>
         </a>
     </div>
+
+    <button id="appear-as-button" class="hidden"></button>
 </body>
 </html>

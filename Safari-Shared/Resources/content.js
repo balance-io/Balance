@@ -116,9 +116,20 @@ function processInpageMessage(message) {
     });
 }
 
-// Receive from background
 browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
-    if ("proxy" in request) {
+     if (request.subject === "getAppearAs") {
+        const value = tryParse(localStorage.getItem("__balanceAppearAs__"), 0) || 0;
+        sendResponse(value);
+    } else if (request.subject === "setAppearAs") {
+        if (location.hostname !== request.hostname) {
+            sendResponse(false);
+            return;
+        }
+
+        localStorage.setItem("__balanceAppearAs__", request.wallet);
+        sendResponse(true);
+        location.reload();
+    } else if ("proxy" in request) {
         pendingRequestsIds.add(request.id);
         platformSpecificProcessMessage(request); // iOS opens app here
     } else {
@@ -148,4 +159,12 @@ var getFavicon = function () {
         }
     }
     return "";
+}
+
+function tryParse(value, defaultValue) {
+    try {
+        return JSON.parse(value)
+    } catch {
+        return defaultValue
+    }
 }
