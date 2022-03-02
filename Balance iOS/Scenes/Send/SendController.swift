@@ -49,7 +49,35 @@ class SendController: SPDiffableTableController {
                     guard let _ = item as? DiffableSendRecipientItem else { return nil }
                     let cell = tableView.dequeueReusableCell(withClass: SendRecipientTableCell.self, for: indexPath)
                     cell.pasteButton.addAction(.init(handler: { _ in
-                        SPIndicator.present(title: "Pasted", preset: .done)
+                        let text = UIPasteboard.general.string ?? .space
+                        if text.hasPrefix("0x") {
+                            SPIndicator.present(title: "Pasted", preset: .done)
+                            cell.textView.text = text
+                        } else {
+                            SPIndicator.present(title: "No address in clipboard", preset: .error)
+                        }
+                    }), for: .touchUpInside)
+                    cell.scanButton.addAction(.init(handler: { _ in
+                        Presenter.App.showQRCodeScanningController(completion: { string, controller in
+                            if string.hasPrefix("0x") {
+                                cell.textView.text = string
+                                controller.dismissAnimated()
+                            } else {
+                                controller.qrScannerView.rescan()
+                            }
+                        }, on: self)
+                    }), for: .touchUpInside)
+                    cell.recentButton.addAction(.init(handler: { _ in
+                        let recentController = UIViewController()
+                        let popoverController = SPPopoverNavigationController(
+                            rootViewController: recentController,
+                            size: .init(width: 300, height: 200),
+                            sourceView: cell.buttonBarView,
+                            sourceRect: .init(x: .zero, y: .zero, width: cell.buttonBarView.frame.width, height: .zero),
+                            permittedArrowDirections: .down
+                        )
+                        recentController.navigationItem.rightBarButtonItem = recentController.closeBarButtonItem
+                        self.present(popoverController)
                     }), for: .touchUpInside)
                     return cell
                 })

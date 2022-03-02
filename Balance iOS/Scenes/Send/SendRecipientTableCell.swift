@@ -26,17 +26,19 @@ class SendRecipientTableCell: SPTableViewCell {
         $0.backgroundColor = .init(light: .init(hex: "F4F9FF"), dark: .tint.secondary)
     }
     
-    let textField = SPTextField().do {
-        $0.placeholder = "0x..."
+    let textView = SPTextView().do {
+        $0.backgroundColor = .clear
+        //$0.placeholder = "0x..."
         $0.font = UIFont.preferredFont(forTextStyle: .body).monospaced
         $0.textAlignment = .left
-        $0.contentVerticalAlignment = .top
+        //$0.contentVerticalAlignment = .top
+
     }
     
     override func commonInit() {
         super.commonInit()
         selectionStyle = .none
-        contentView.addSubviews(buttonBarView, textField)
+        contentView.addSubviews(buttonBarView, textView)
         buttonBarView.addSubviews([scanButton, recentButton, pasteButton])
     }
     
@@ -47,7 +49,12 @@ class SendRecipientTableCell: SPTableViewCell {
         buttonBarView.frame.setMaxY(contentView.frame.height)
         buttonBarView.frame.origin.x = .zero
         
-        textField.frame = .init(x: contentView.layoutMargins.left, y: contentView.layoutMargins.top, width: contentView.layoutWidth, height: contentView.frame.height - buttonBarView.frame.height - 4)
+        textView.frame = .init(
+            x: contentView.layoutMargins.left,
+            y: contentView.layoutMargins.top,
+            width: contentView.layoutWidth,
+            height: contentView.frame.height - buttonBarView.frame.height - 4 - contentView.layoutMargins.top
+        )
         
         scanButton.sizeToFit()
         scanButton.setYCenter()
@@ -63,7 +70,7 @@ class SendRecipientTableCell: SPTableViewCell {
     }
     
     override func sizeThatFits(_ size: CGSize) -> CGSize {
-        return .init(width: size.width, height: 124)
+        return .init(width: size.width, height: 128)
     }
     
     class Button: SPDimmedButton {

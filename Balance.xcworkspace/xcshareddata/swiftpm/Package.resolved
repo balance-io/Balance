@@ -56,6 +56,15 @@
         }
       },
       {
+        "package": "QRScanner",
+        "repositoryURL": "https://github.com/mercari/QRScanner",
+        "state": {
+          "branch": null,
+          "revision": "b9bbcabf8ce54974b56a63f403abc43930684314",
+          "version": "1.9.0"
+        }
+      },
+      {
         "package": "SPAlert",
         "repositoryURL": "https://github.com/ivanvorobei/SPAlert",
         "state": {

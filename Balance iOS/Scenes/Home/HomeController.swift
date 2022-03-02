@@ -163,11 +163,8 @@ class HomeController: NativeHeaderTableController {
                 id: Section.accounts.id,
                 header: NativeLargeHeaderItem(
                     title: Texts.Wallet.wallets,
-                    actionTitle: Texts.Shared.see_all,
-                    action: { item, indexPath in
-                        guard let navigationController = self.navigationController else { return }
-                        Presenter.Crypto.showWallets(on: navigationController)
-                    }
+                    actionTitle: nil,
+                    action: nil
                 ),
                 footer: nil,
                 items: walletItems

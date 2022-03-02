@@ -79,5 +79,7 @@
 	<false/>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Using for support with Intercom</string>
+	<key>NSCameraUsageDescription</key>
+	<string>For scan QR Code of ETH address</string>
 </dict>
 </plist>
