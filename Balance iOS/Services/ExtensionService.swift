@@ -1,6 +1,9 @@
 import UIKit
 import SPAlert
 
+typealias ObjcNSArrayMethod = @convention(c) (AnyObject, Selector) -> NSArray?
+typealias ObjcVoidMethod1Arg = @convention(c) (AnyObject, Selector, Any) -> Void
+
 enum ExtensionService {
     
     static func processInput(on controller: UIViewController) {
@@ -121,11 +124,31 @@ enum ExtensionService {
         }
     }
     
-    static private func respondTo(request: SafariRequest, response: ResponseToExtension, on controller: UIViewController) {
-        ExtensionBridge.respond(id: request.id, response: response)
+    static private func blankRedirect(request: SafariRequest, on controller: UIViewController) {
         UIApplication.shared.open(URL.blankRedirect(id: request.id)) { _ in
             controller.dismissAnimated()
         }
+    }
+    
+    static private func respondTo(request: SafariRequest, response: ResponseToExtension, on controller: UIViewController) {
+        ExtensionBridge.respond(id: request.id, response: response)
+        
+        // https://npm.runkit.com/react-native-minimizer/ios/Minimizer.m?t=1643734271412
+        let selector = Selector(("sendResponseForDestination:"))
+        let destinationsSelector = Selector(("destinations"))
+        
+        guard let sysNavIvar = class_getInstanceVariable(UIApplication.self, "_systemNavigationAction"),
+              let action = object_getIvar(UIApplication.shared, sysNavIvar) as AnyObject?,
+              let systemNavigationActionClass = object_getClass(action),
+              let destinationsMethod = class_getInstanceMethod(systemNavigationActionClass, destinationsSelector),
+              let destinations = unsafeBitCast(method_getImplementation(destinationsMethod), to: ObjcNSArrayMethod.self)(action, destinationsSelector),
+              let destination = destinations.object(at: 0) as? UInt,
+              let sendResponseForDestinationMethod = class_getInstanceMethod(systemNavigationActionClass, selector) else {
+            return blankRedirect(request: request, on: controller)
+        }
+        
+        let sendResponseForDestination = unsafeBitCast(method_getImplementation(sendResponseForDestinationMethod), to: ObjcVoidMethod1Arg.self)
+        sendResponseForDestination(action, selector, destination)
     }
     
     static private func showErrorAlert(_ error: String? = nil) {
