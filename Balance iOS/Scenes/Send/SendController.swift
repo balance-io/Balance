@@ -68,15 +68,17 @@ class SendController: SPDiffableTableController {
                         }, on: self)
                     }), for: .touchUpInside)
                     cell.recentButton.addAction(.init(handler: { _ in
-                        let recentController = UIViewController()
+                        let recentController = RecentAddressesController(didSelectAddress: { address, controller in
+                            controller.dismissAnimated()
+                            cell.textView.text = address
+                        })
                         let popoverController = SPPopoverNavigationController(
                             rootViewController: recentController,
-                            size: .init(width: 300, height: 200),
+                            size: .init(width: 400, height: 220),
                             sourceView: cell.buttonBarView,
                             sourceRect: .init(x: .zero, y: .zero, width: cell.buttonBarView.frame.width, height: .zero),
                             permittedArrowDirections: .down
                         )
-                        recentController.navigationItem.rightBarButtonItem = recentController.closeBarButtonItem
                         self.present(popoverController)
                     }), for: .touchUpInside)
                     return cell
