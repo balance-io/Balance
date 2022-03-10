@@ -24,7 +24,7 @@ class RecentAddressesController: SPDiffableTableController {
         
         navigationController?.setNavigationBarHidden(true, animated: false)
         view.backgroundColor = .systemGroupedBackground
-        
+
         configureDiffable(
             sections: content,
             cellProviders: SPDiffableTableDataSource.CellProvider.default
@@ -46,13 +46,14 @@ class RecentAddressesController: SPDiffableTableController {
                 id: Section.addresses.id,
                 header: nil,
                 footer: nil,
-                items: WalletsManager.recentAddresses.map({ address in
-                    let formateedAddress = String(address.prefix(6)) + "···" + String(address.suffix(4))
+                items: WalletsManager.getRecentAddress().map({ data in
+                    let formateedAddress = String(data.address.prefix(6)) + "···" + String(data.address.suffix(4))
                     return SPDiffableTableRow(
+                        id: data.address + "\(data.amount)" + "\(Int.random(in: 1...10000000))",
                         text: formateedAddress,
-                        detail: "\(Int.random(in: 1...9)).\(Int.random(in: 1...999)) ETH",
+                        detail: String(data.amount) + .space + data.currency,
                         action: { item, indexPath in
-                            self.didSelectAddress(address, self)
+                            self.didSelectAddress(data.address, self)
                         }
                     )
                 })
