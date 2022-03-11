@@ -8,6 +8,22 @@ import SPIndicator
 
 class SendController: SPDiffableTableController {
     
+    // MARK: - Data
+    
+    private var address: String? {
+        didSet {
+            print("new address \(self.address)")
+            updateAvability()
+        }
+    }
+    
+    private var amount: Double? {
+        didSet {
+            print("new amount \(self.amount)")
+            updateAvability()
+        }
+    }
+    
     // MARK: - Init
     
     init() {
@@ -72,6 +88,11 @@ class SendController: SPDiffableTableController {
                     if let cell = cell as? SendRecipientTableCell {
                         cell.textView.text = nil
                     }
+                    if let indexPath = self.diffableDataSource?.getIndexPath(id: "amount") {
+                        if let cell = self.tableView.cellForRow(at: indexPath) as? SPDiffableTextFieldTableViewCell {
+                            cell.textField.text = nil
+                        }
+                    }
                 }
                 self.updateAvability()
             }), for: .touchUpInside)
@@ -85,12 +106,13 @@ class SendController: SPDiffableTableController {
                     guard let _ = item as? DiffableSendRecipientItem else { return nil }
                     let cell = tableView.dequeueReusableCell(withClass: SendRecipientTableCell.self, for: indexPath)
                     cell.textView.delegate = self
+                    cell.textView.text = self.address
                     cell.pasteButton.addAction(.init(handler: { _ in
                         let text = UIPasteboard.general.string ?? .space
                         if text.isETHAddress {
+                            self.address = text
+                            cell.textView.text = self.address
                             SPIndicator.present(title: "Pasted", preset: .done)
-                            cell.textView.text = text
-                            self.updateAvability()
                         } else {
                             SPIndicator.present(title: "No ETH Address in clipboard", preset: .error)
                         }
@@ -98,9 +120,9 @@ class SendController: SPDiffableTableController {
                     cell.scanButton.addAction(.init(handler: { _ in
                         Presenter.App.showQRCodeScanningController(completion: { string, controller in
                             if string.isETHAddress {
-                                cell.textView.text = string
+                                self.address = string
+                                cell.textView.text = self.address
                                 controller.dismissAnimated()
-                                self.updateAvability()
                             } else {
                                 controller.qrScannerView.rescan()
                             }
@@ -110,8 +132,8 @@ class SendController: SPDiffableTableController {
                     cell.recentButton.addAction(.init(handler: { _ in
                         let recentController = RecentAddressesController(didSelectAddress: { address, controller in
                             controller.dismissAnimated()
-                            cell.textView.text = address
-                            self.updateAvability()
+                            self.address = address
+                            cell.textView.text = self.address
                         })
                         let popoverController = SPPopoverNavigationController(
                             rootViewController: recentController,
@@ -174,13 +196,13 @@ class SendController: SPDiffableTableController {
                     ),
                     SPDiffableTableRowTextField(
                         id: "amount",
-                        text: nil,
+                        text: amount == nil ? nil : String(amount!),
                         placeholder: "Amount",
                         autocorrectionType: .no,
                         keyboardType: .decimalPad,
                         autocapitalizationType: .none,
                         clearButtonMode: .always,
-                        delegate: nil
+                        delegate: self
                     ),
                     SPDiffableTableRowSubtitle(
                         text: choosedChain.name,
@@ -212,19 +234,28 @@ class SendController: SPDiffableTableController {
     func updateAvability() {
         for cell in tableView.visibleCells {
             if let cell = cell as? SendRecipientTableCell {
-                let validETHAddress = cell.textView.text.isETHAddress
-                self.toolBarView.actionButton.isEnabled = validETHAddress
                 cell.recentButton.isEnabled = !WalletsManager.getRecentAddress().isEmpty
-                return
             }
         }
         
+        let validETHAddress = address?.isETHAddress ?? false
+        let isReadyToSend = validETHAddress && amount != nil && amount! > 0
+        self.toolBarView.actionButton.isEnabled = isReadyToSend
     }
 }
 
-extension SendController: UITextViewDelegate {
+extension SendController: UITextViewDelegate, UITextFieldDelegate {
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField.superview?.superview is SPDiffableTextFieldTableViewCell {
+            let text = (textField.text ?? .empty).replace(",", with: ".")
+            self.amount = Double(text)
+        }
+    }
     
     func textViewDidChange(_ textView: UITextView) {
-        updateAvability()
+        if textView.superview?.superview is SendRecipientTableCell {
+            self.address = textView.text
+        }
     }
 }
