@@ -10,8 +10,8 @@ extension UIViewController {
         return navigationController
     }
     
-    @objc func dismissAnimated() {
-        dismiss(animated: true)
+    @objc func dismissAnimated(completion: (() -> Void)? = nil) {
+        dismiss(animated: true, completion: completion)
     }
     
     func showMessageAlert(text: String, completion: (() -> Void)? = nil) {

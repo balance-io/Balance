@@ -10,7 +10,7 @@ extension WalletsManager {
         
         var address: String
         var amount: Double
-        var currency: String
+        var chain: EthereumChain
     }
     
     static func addToRecentAddress(_ newData: RecentAddressData) {
@@ -22,14 +22,14 @@ extension WalletsManager {
         let storageSplitter = "expBal_$"
         for data in datas {
             let splitter = "x:x"
-            let value = data.address + splitter + "\(data.amount)" + splitter + data.currency
+            let value = data.address + splitter + "\(data.amount)" + splitter + "\(data.chain.rawValue)"
             storage = storage + storageSplitter + value
         }
-        UserDefaults.standard.set(storage, forKey: "recent_address_key_3")
+        UserDefaults.standard.set(storage, forKey: "recent_address_key_4")
     }
     
     static func getRecentAddress() -> [RecentAddressData] {
-        let key = UserDefaults.standard.string(forKey: "recent_address_key_3") ?? .empty
+        let key = UserDefaults.standard.string(forKey: "recent_address_key_4") ?? .empty
         let values = key.components(separatedBy: "expBal_$")
         var datas: [RecentAddressData] = []
         for value in values {
@@ -37,8 +37,12 @@ extension WalletsManager {
             guard let address = fields[safe: 0] else { continue }
             guard let amountString = fields[safe: 1] else { continue }
             guard let amount = Double(amountString) else { continue }
-            guard let currency = fields[safe: 2] else { continue }
-            datas.append(.init(address: address, amount: amount, currency: currency))
+            guard let rawChain = fields[safe: 2 ],
+                  let intChain = Int(rawChain),
+                  let chain = EthereumChain(rawValue: intChain) else {
+                continue
+            }
+            datas.append(.init(address: address, amount: amount, chain: chain))
         }
         return datas
     }

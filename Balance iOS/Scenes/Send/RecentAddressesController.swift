@@ -51,7 +51,7 @@ class RecentAddressesController: SPDiffableTableController {
                     return SPDiffableTableRow(
                         id: data.address + "\(data.amount)" + "\(Int.random(in: 1...10000000))",
                         text: formateedAddress,
-                        detail: String(data.amount) + .space + data.currency,
+                        detail: String(data.amount) + .space + data.chain.symbol,
                         action: { item, indexPath in
                             self.didSelectAddress(data.address, self)
                         }

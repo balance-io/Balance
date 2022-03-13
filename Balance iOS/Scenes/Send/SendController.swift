@@ -5,6 +5,9 @@ import Constants
 import NativeUIKit
 import SPSafeSymbols
 import SPIndicator
+import SPAlert
+import SafariServices
+import BigInt
 
 class SendController: SPDiffableTableController {
     
@@ -53,6 +56,7 @@ class SendController: SPDiffableTableController {
         view.backgroundColor = .systemGroupedBackground
         
         tableView.register(SendRecipientTableCell.self)
+        tableView.register(SendAmountTableCell.self)
         tableView.register(WalletTableViewCell.self)
         tableView.contentInset.bottom = NativeLayout.Spaces.Scroll.bottom_inset_reach_end
         
@@ -70,38 +74,101 @@ class SendController: SPDiffableTableController {
             toolBarView.actionButton.set(title: Texts.Wallet.send_action, icon: .init(SPSafeSymbol.paperplane.fill), colorise: .tintedColorful)
             toolBarView.actionButton.isEnabled = false
             toolBarView.actionButton.addAction(.init(handler: { _ in
-                
-                let cell = getCell()
-                if let cell = cell, cell.textView.text.isETHAddress {
-                    WalletsManager.addToRecentAddress(
-                        WalletsManager.RecentAddressData(
-                            address: cell.textView.text,
-                            amount: Double(Int.random(in: 1...1000000)),
-                            currency: "ETH"
-                        )
-                    )
+                let chain = self.choosedChain
+                guard let wallet = self.choosedWallet,
+                      let address = wallet.ethereumAddress,
+                      let cell = getCell(),
+                      cell.textView.text.isETHAddress,
+                      let amount = self.amount else {
+                    self.showErrorAlert("Missing data in request (send)")
+                    return
                 }
                 
-                // Temp for update UI
-                SPIndicator.present(title: "Sent", preset: .done, haptic: .success)
-                for cell in self.tableView.visibleCells {
-                    if let cell = cell as? SendRecipientTableCell {
-                        cell.textView.text = nil
-                    }
-                    if let indexPath = self.diffableDataSource?.getIndexPath(id: "amount") {
-                        if let cell = self.tableView.cellForRow(at: indexPath) as? SPDiffableTextFieldTableViewCell {
-                            cell.textField.text = nil
+                let split = String(amount).components(separatedBy: ".")
+                let integer = split[0].count == 0 ? "0" : split[0]
+                let fraction = split[1].padding(toLength: 18, withPad: "0", startingAt: 0)
+                guard let bigint = BigUInt("\(integer)\(fraction)") else {
+                    self.showErrorAlert("BigUInt nil")
+                    return
+                }
+                
+                let transaction = Transaction(from: address.lowercased(), to: cell.textView.text.lowercased(), value: "0x\(String(bigint, radix: 16))", data: "0x")
+                Presenter.Crypto.Extension.showApproveSendTransaction(
+                    transaction: transaction,
+                    chain: chain,
+                    address: address,
+                    peerMeta: nil,
+                    approveCompletion: { controller, approved in
+                        controller.dismissAnimated()
+                        let ethereum = Ethereum.shared
+                        if approved {
+                            do {
+                                let transactionHash = try ethereum.send(transaction: controller.transaction, wallet: wallet, chain: chain)
+                                
+                                WalletsManager.addToRecentAddress(
+                                    WalletsManager.RecentAddressData(
+                                        address: cell.textView.text,
+                                        amount: amount,
+                                        chain: chain
+                                    )
+                                )
+                                
+                                let controller = SFSafariViewController(url: .init(string: "\(chain.explorerURLString)/tx/\(transactionHash)")!)
+                                controller.dismissAnimated() {
+                                    self.present(controller, animated: true, completion: nil)
+                                }
+                                
+                                self.amount = 0
+                                SPIndicator.present(title: "Sent", preset: .done, haptic: .success)
+                                for cell in self.tableView.visibleCells {
+                                    if let cell = cell as? SendRecipientTableCell {
+                                        cell.textView.text = nil
+                                    }
+                                    if let indexPath = self.diffableDataSource?.getIndexPath(id: "amount") {
+                                        if let cell = self.tableView.cellForRow(at: indexPath) as? SendAmountTableCell {
+                                            cell.textField.text = nil
+                                        }
+                                    }
+                                }
+                                self.updateAvability()
+                            } catch {
+                                self.showErrorAlert(error.localizedDescription)
+                                controller.dismissAnimated()
+                                return
+                            }
+                        } else {
+                            controller.dismissAnimated()
                         }
-                    }
-                }
-                self.updateAvability()
+                    }, on: self)
+
+                // Temp for update UI
             }), for: .touchUpInside)
             navigationController.mimicrateToolBarView = toolBarView
         }
         
         configureDiffable(
             sections: content,
-            cellProviders: [.wallet, .network] + SPDiffableTableDataSource.CellProvider.default + [
+            cellProviders: [
+                .wallet,
+                .network,
+                .init(clouser: { tableView, indexPath, item in
+                    guard let item = item as? SPDiffableTableRowTextField, item.id == "amount" else { return nil }
+                    
+                    let cell = tableView.dequeueReusableCell(withClass: SendAmountTableCell.self, for: indexPath)
+                    
+                    cell.textField.delegate = item.delegate
+                    cell.textField.placeholder = item.placeholder
+                    cell.textField.text = item.text
+                    cell.textField.autocorrectionType = item.autocorrectionType
+                    cell.textField.keyboardType = item.keyboardType
+                    cell.textField.autocapitalizationType = item.autocapitalizationType
+                    cell.textField.clearButtonMode = item.clearButtonMode
+                    
+                    cell.symbol.text = self.choosedChain.symbol
+                    
+                    return cell
+                }),
+            ] + SPDiffableTableDataSource.CellProvider.default + [
                 .init(clouser: { tableView, indexPath, item in
                     guard let _ = item as? DiffableSendRecipientItem else { return nil }
                     let cell = tableView.dequeueReusableCell(withClass: SendRecipientTableCell.self, for: indexPath)
@@ -153,6 +220,10 @@ class SendController: SPDiffableTableController {
         dismissKeyboardWhenTappedAround()
     }
     
+    private func showErrorAlert(_ error: String? = nil) {
+        SPAlert.present(message: error ?? Texts.Wallet.operation_faild, haptic: .error, completion: nil)
+    }
+    
     // MARK: - Diffable
     
     internal var content: [SPDiffableSection] {
@@ -183,17 +254,17 @@ class SendController: SPDiffableTableController {
                 header: nil,
                 footer: nil,
                 items: [
-                    SPDiffableTableRow(
-                        text: "Ether",
-                        detail: "ETH",
-                        icon: .generateSettingsIcon(
-                            SPSafeSymbol.wallet.passFill.name,
-                            backgroundColor: .systemIndigo
-                        ),
-                        accessoryType: .disclosureIndicator,
-                        selectionStyle: .none,
-                        action: nil
-                    ),
+//                    SPDiffableTableRow(
+//                        text: "Ether",
+//                        detail: "ETH",
+//                        icon: .generateSettingsIcon(
+//                            SPSafeSymbol.wallet.passFill.name,
+//                            backgroundColor: .systemIndigo
+//                        ),
+//                        accessoryType: .disclosureIndicator,
+//                        selectionStyle: .none,
+//                        action: nil
+//                    ),
                     SPDiffableTableRowTextField(
                         id: "amount",
                         text: amount == nil ? nil : String(amount!),
@@ -204,9 +275,8 @@ class SendController: SPDiffableTableController {
                         clearButtonMode: .always,
                         delegate: self
                     ),
-                    SPDiffableTableRowSubtitle(
+                    SPDiffableTableRow(
                         text: choosedChain.name,
-                        subtitle: choosedChain.symbol,
                         accessoryType: .disclosureIndicator,
                         selectionStyle: .default,
                         action: { item, indexPath in
@@ -247,7 +317,7 @@ class SendController: SPDiffableTableController {
 extension SendController: UITextViewDelegate, UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if textField.superview?.superview is SPDiffableTextFieldTableViewCell {
+        if textField.superview?.superview is SendAmountTableCell {
             let text = (textField.text ?? .empty).replace(",", with: ".")
             self.amount = Double(text)
         }

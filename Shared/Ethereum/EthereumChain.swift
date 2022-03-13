@@ -104,4 +104,25 @@ enum EthereumChain: Int {
         }
     }
     
+    var explorerURLString: String {
+        switch self {
+        case .ethereum: return "https://etherscan.io"
+        case .arbitrum: return "https://arbiscan.io"
+        case .optimism: return "https://optimistic.etherscan.io"
+        case .polygon: return "https://polygonscan.com"
+        case .binance: return "https://bscscan.com"
+        case .avalanche: return "https://snowtrace.io"
+        case .xDai: return "https://blockscout.com/xdai/mainnet"
+            
+        case .arbitrumRinkeby: return "https://testnet.arbiscan.io"
+        case .optimisticKovan: return "https://kovan-optimistic.etherscan.io"
+        case .ethereumRinkeby: return "https://rinkeby.etherscan.io"
+        case .ethereumRopsten: return "https://ropsten.etherscan.io"
+        case .ethereumKovan: return "https://kovan.etherscan.io"
+        case .ethereumGoerli: return "https://goerli.etherscan.io"
+        case .binanceTestnet: return "https://testnet.bscscan.com"
+        case .avalancheFuji: return "https://testnet.snowtrace.io"
+        case .polygonMumbai: return "https://mumbai.polygonscan.com"
+        }
+    }
 }

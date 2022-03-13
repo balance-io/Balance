@@ -150,6 +150,7 @@
 		2CFDDF4C2765416F00F89019 /* macos-specific-content.js in Resources */ = {isa = PBXBuildFile; fileRef = 2CFDDF4B2765416F00F89019 /* macos-specific-content.js */; };
 		2CFDDF4E2765417E00F89019 /* ios-specific-content.js in Resources */ = {isa = PBXBuildFile; fileRef = 2CFDDF4D2765417D00F89019 /* ios-specific-content.js */; };
 		6E370B6B27C54A4200AE35EA /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = 6E370B6A27C54A4200AE35EA /* popup.html */; };
+		6E99BB3A27DE231300D98402 /* SendAmountTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E99BB3927DE231300D98402 /* SendAmountTableCell.swift */; };
 		6EAC8FE927B2D60900F7E4DE /* BlockiesAddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EAC8FE827B2D60900F7E4DE /* BlockiesAddressTableViewCell.swift */; };
 		6ED8705927CFC85D008AF309 /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = 6ED8705827CFC85D008AF309 /* popup.js */; };
 		DFC5A10D00631755121FCBE6 /* Pods_Balance_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29A83FE96A68BB9F154134EF /* Pods_Balance_iOS.framework */; };
@@ -419,6 +420,7 @@
 		2CFDDF4D2765417D00F89019 /* ios-specific-content.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "ios-specific-content.js"; sourceTree = "<group>"; };
 		4A2B4FCB9C257ECA0630805D /* Pods_Balance.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Balance.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E370B6A27C54A4200AE35EA /* popup.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = popup.html; sourceTree = "<group>"; };
+		6E99BB3927DE231300D98402 /* SendAmountTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendAmountTableCell.swift; sourceTree = "<group>"; };
 		6EAC8FE827B2D60900F7E4DE /* BlockiesAddressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockiesAddressTableViewCell.swift; sourceTree = "<group>"; };
 		6ED8705827CFC85D008AF309 /* popup.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = popup.js; sourceTree = "<group>"; };
 		97732C86E51B06E7896F9030 /* Pods-Balance iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Balance iOS.release.xcconfig"; path = "Target Support Files/Pods-Balance iOS/Pods-Balance iOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -1292,6 +1294,7 @@
 			children = (
 				F4E33EA027C64196004C380B /* SendController.swift */,
 				F4D1072027CCE0F400348297 /* SendRecipientTableCell.swift */,
+				6E99BB3927DE231300D98402 /* SendAmountTableCell.swift */,
 				F4D1072227CCE1AB00348297 /* DiffableSendRecipientItem.swift */,
 				F49ECC2B27CFBC17001777E5 /* QRCodeScanningController.swift */,
 				F492CBB627D10D6C001B8F4B /* RecentAddressesController.swift */,
@@ -1858,6 +1861,7 @@
 				F4CF564427A8147B008C72C4 /* ApproveSendTransactionController.swift in Sources */,
 				2CF255B4275A744000AE54B9 /* PasswordViewController.swift in Sources */,
 				F4B4CDA227A2B33E00300582 /* SafariStepsController.swift in Sources */,
+				6E99BB3A27DE231300D98402 /* SendAmountTableCell.swift in Sources */,
 				F468EFFA27A00EEE007DD803 /* Layout.swift in Sources */,
 				2C8E889F275F9967003EB8DB /* Storyboard.swift in Sources */,
 				F468B96A27A71A1D00314201 /* SPDiffableTableDataSource+Chain.swift in Sources */,

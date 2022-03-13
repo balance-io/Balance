@@ -176,7 +176,7 @@ class ApproveSendTransactionController: SPDiffableTableController {
         
         // Data
         
-        var items: [SPDiffableItem] = [
+        var items: [SPDiffableItem] = peerMeta != nil ? [
             SPDiffableTableRow(
                 id: Item.website.id,
                 text: Texts.Wallet.Operation.approve_transaction_website,
@@ -186,7 +186,7 @@ class ApproveSendTransactionController: SPDiffableTableController {
                 selectionStyle: .none,
                 action: nil
             )
-        ]
+        ] : []
         
         if let value = transaction.valueWithSymbol(chain: chain, ethPrice: priceService.currentPrice, withLabel: true) {
             items.append(
