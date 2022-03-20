@@ -26,7 +26,7 @@ class SafariTableViewCell: SPTableViewCell {
     }
     
     let runButton = NativeSmallActionButton().do {
-        $0.set(title: Texts.Wallet.SafariExtension.Steps.open, icon: nil, colorise: .tintedContentGroupBackground)
+        $0.set(title: Texts.Wallet.SafariExtension.Steps.open, icon: nil, colorise: .tintedContentTertiaryGroupBackground)
     }
     
     let iconView = SPImageView().do {

@@ -14,7 +14,7 @@ PODS:
     - PromiseKit/CorePromise
   - secp256k1.swift (0.1.4)
   - Starscream (3.1.1)
-  - SwiftProtobuf (1.18.0)
+  - SwiftProtobuf (1.19.0)
   - SwiftyJSON (4.3.0)
   - TrustWalletCore (2.7.2):
     - TrustWalletCore/Core (= 2.7.2)
@@ -76,7 +76,7 @@ SPEC CHECKSUMS:
   PromiseKit: 996202d4cae72b7801b312abef4cd2f995b2978a
   secp256k1.swift: a7e7a214f6db6ce5db32cc6b2b45e5c4dd633634
   Starscream: 4bb2f9942274833f7b4d296a55504dcfc7edb7b0
-  SwiftProtobuf: c3c12645230d9b09c72267e0de89468c5543bd86
+  SwiftProtobuf: 6ef3f0e422ef90d6605ca20b21a94f6c1324d6b3
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
   TrustWalletCore: 60f1b66f224af996f7845c3e64123c7631658aaa
   WalletConnect: 1df75d4355b1cacfc27d7ef2416fae43862d0eb4
@@ -84,4 +84,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 6773ec1c4d4258d4c280c95fc82c4059cc57c2ea
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.11.3

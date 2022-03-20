@@ -10,7 +10,6 @@ open class HomeHeaderController: SPView {
     let addButton = NativeLargeActionButton().do {
         $0.set(title: Texts.Wallet.add_wallet_action, icon: UIImage(.plus.circleFill), colorise: .tinted)
         $0.higlightStyle = .background
-        $0.addTarget(self, action: #selector(didTapAdd), for: .touchUpInside)
     }
     
     let footerAddButton = NativeFooterView(text: Texts.Wallet.add_wallet_footer)
@@ -24,6 +23,7 @@ open class HomeHeaderController: SPView {
     
     open override func commonInit() {
         super.commonInit()
+        addButton.addTarget(self, action: #selector(didTapAdd), for: .touchUpInside)
         layoutMargins.bottom = NativeLayout.Spaces.default_double
         backgroundColor = Self.backgroundColor
         addSubviews([extendView, addButton, footerAddButton])
