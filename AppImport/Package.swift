@@ -26,9 +26,9 @@ let package = Package(
         .package(url: "https://github.com/kean/Nuke", .upToNextMajor(from: "10.7.1")),
         .package(url: "https://github.com/sparrowcode/SPSafeSymbols", .upToNextMajor(from: "1.0.5")),
         .package(url: "https://github.com/sparrowcode/SPSettingsIcons", .upToNextMajor(from: "1.0.1")),
+        .package(url: "https://github.com/sparrowcode/SPQRCode", .upToNextMajor(from: "1.0.1")),
         .package(url: "https://github.com/ivanvorobei/SPPermissions", .upToNextMajor(from: "7.1.5")),
         .package(url: "https://github.com/SVGKit/SVGKit", .upToNextMajor(from: "3.0.0")),
-        .package(url: "https://github.com/mercari/QRScanner", .upToNextMajor(from: "1.9.0")),
         .package(name: "Intercom", url: "https://github.com/intercom/intercom-ios", .upToNextMajor(from: "11.2.0")),
         .package(path: "Constants")
     ],
@@ -52,7 +52,7 @@ let package = Package(
                 .product(name: "SPPermissionsFaceID", package: "SPPermissions"),
                 .product(name: "Nuke", package: "Nuke"),
                 .product(name: "SVGKit", package: "SVGKit"),
-                .product(name: "QRScanner", package: "QRScanner"),
+                .product(name: "SPQRCode", package: "SPQRCode"),
                 .product(name: "Constants", package: "Constants")
             ]
         )

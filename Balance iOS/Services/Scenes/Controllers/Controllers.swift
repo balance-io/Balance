@@ -6,10 +6,6 @@ enum Controllers {
     
     enum App {
         
-        static func qr_code_scanning(completion: @escaping (String, QRCodeScanningController)->Void) -> UIViewController {
-            QRCodeScanningController(completion: completion)
-        }
-        
         enum Settings {
             
             static var list: UIViewController { SettingsController() }

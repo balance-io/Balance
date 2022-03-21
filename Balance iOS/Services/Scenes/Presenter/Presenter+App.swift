@@ -21,14 +21,6 @@ extension Presenter {
             viewController.present(navigationController)
         }
         
-        static func showQRCodeScanningController(completion: @escaping (String, QRCodeScanningController)->Void, on viewController: UIViewController) {
-            let controller = Controllers.App.qr_code_scanning(completion: completion)
-            let navigationController = controller.wrapToNavigationController(prefersLargeTitles: false)
-            controller.navigationItem.rightBarButtonItem = controller.closeBarButtonItem
-            applyForm(.fullScreen, to: navigationController)
-            viewController.present(navigationController)
-        }
-        
         enum Settings {
             
             static func showLanguages(on navigationController: UINavigationController) {

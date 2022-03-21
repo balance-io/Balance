@@ -221,7 +221,6 @@
 		F478A37827A16E9800D1398B /* WalletPhracesActionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F478A37727A16E9800D1398B /* WalletPhracesActionsController.swift */; };
 		F478A37B27A16EE600D1398B /* WalletPhracesActionSegmentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F478A37A27A16EE600D1398B /* WalletPhracesActionSegmentButton.swift */; };
 		F492CBB727D10D6C001B8F4B /* RecentAddressesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F492CBB627D10D6C001B8F4B /* RecentAddressesController.swift */; };
-		F49ECC2C27CFBC17001777E5 /* QRCodeScanningController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49ECC2B27CFBC17001777E5 /* QRCodeScanningController.swift */; };
 		F4B4CD9327A29B9100300582 /* PasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B4CD9227A29B9100300582 /* PasswordController.swift */; };
 		F4B4CD9527A29DFA00300582 /* AuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B4CD9427A29DFA00300582 /* AuthController.swift */; };
 		F4B4CD9727A2A04D00300582 /* AuthOnboardingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B4CD9627A2A04D00300582 /* AuthOnboardingController.swift */; };
@@ -491,7 +490,6 @@
 		F478A37727A16E9800D1398B /* WalletPhracesActionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletPhracesActionsController.swift; sourceTree = "<group>"; };
 		F478A37A27A16EE600D1398B /* WalletPhracesActionSegmentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletPhracesActionSegmentButton.swift; sourceTree = "<group>"; };
 		F492CBB627D10D6C001B8F4B /* RecentAddressesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentAddressesController.swift; sourceTree = "<group>"; };
-		F49ECC2B27CFBC17001777E5 /* QRCodeScanningController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeScanningController.swift; sourceTree = "<group>"; };
 		F4B4CD9227A29B9100300582 /* PasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordController.swift; sourceTree = "<group>"; };
 		F4B4CD9427A29DFA00300582 /* AuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthController.swift; sourceTree = "<group>"; };
 		F4B4CD9627A2A04D00300582 /* AuthOnboardingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthOnboardingController.swift; sourceTree = "<group>"; };
@@ -1296,7 +1294,6 @@
 				F4D1072027CCE0F400348297 /* SendRecipientTableCell.swift */,
 				6E99BB3927DE231300D98402 /* SendAmountTableCell.swift */,
 				F4D1072227CCE1AB00348297 /* DiffableSendRecipientItem.swift */,
-				F49ECC2B27CFBC17001777E5 /* QRCodeScanningController.swift */,
 				F492CBB627D10D6C001B8F4B /* RecentAddressesController.swift */,
 			);
 			path = Send;
@@ -1807,7 +1804,6 @@
 				F4C9909C27A95C620027286B /* SPDiffableTableDataSourceExtension.swift in Sources */,
 				F4C9909A27A956560027286B /* ApproveOperationController.swift in Sources */,
 				F4B4CDA427A2BB9300300582 /* Image.swift in Sources */,
-				F49ECC2C27CFBC17001777E5 /* QRCodeScanningController.swift in Sources */,
 				F478A36727A14A0000D1398B /* OnboardingChildInterface.swift in Sources */,
 				F4EF21F227C3FF4900EDEF84 /* NFTCollectionViewCell.swift in Sources */,
 				2CF25597275A46D300AE54B9 /* Defaults.swift in Sources */,

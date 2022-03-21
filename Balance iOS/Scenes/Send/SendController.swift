@@ -8,6 +8,7 @@ import SPIndicator
 import SPAlert
 import SafariServices
 import BigInt
+import SPQRCode
 
 class SendController: SPDiffableTableController {
     
@@ -15,14 +16,12 @@ class SendController: SPDiffableTableController {
     
     private var address: String? {
         didSet {
-            print("new address \(self.address)")
             updateAvability()
         }
     }
     
     private var amount: Double? {
         didSet {
-            print("new amount \(self.amount)")
             updateAvability()
         }
     }
@@ -185,15 +184,25 @@ class SendController: SPDiffableTableController {
                         }
                     }), for: .touchUpInside)
                     cell.scanButton.addAction(.init(handler: { _ in
-                        Presenter.App.showQRCodeScanningController(completion: { string, controller in
-                            if string.isETHAddress {
-                                self.address = string
-                                cell.textView.text = self.address
+                        SPQRCode.scanning(
+                            detect: { data in
+                                switch data {
+                                case .ethWallet(_): return data
+                                default: return nil
+                                }
+                            },
+                            handled: { data, controller in
+                                switch data {
+                                case .ethWallet(let address):
+                                    self.address = address
+                                    cell.textView.text = self.address
+                                default:
+                                    break
+                                }
                                 controller.dismissAnimated()
-                            } else {
-                                controller.qrScannerView.rescan()
-                            }
-                        }, on: self)
+                            },
+                            on: self
+                        )
                     }), for: .touchUpInside)
                     cell.recentButton.isEnabled = !WalletsManager.getRecentAddress().isEmpty
                     cell.recentButton.addAction(.init(handler: { _ in

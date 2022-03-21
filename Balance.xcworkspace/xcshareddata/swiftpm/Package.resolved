@@ -56,15 +56,6 @@
         }
       },
       {
-        "package": "QRScanner",
-        "repositoryURL": "https://github.com/mercari/QRScanner",
-        "state": {
-          "branch": null,
-          "revision": "b9bbcabf8ce54974b56a63f403abc43930684314",
-          "version": "1.9.0"
-        }
-      },
-      {
         "package": "SPAlert",
         "repositoryURL": "https://github.com/ivanvorobei/SPAlert",
         "state": {
@@ -125,6 +116,15 @@
           "branch": null,
           "revision": "580ed06a5daec94c5095379971570289b429fa3d",
           "version": "1.4.1"
+        }
+      },
+      {
+        "package": "SPQRCode",
+        "repositoryURL": "https://github.com/sparrowcode/SPQRCode",
+        "state": {
+          "branch": null,
+          "revision": "c9be1c3a228a032d6b143eca2d85d62ddce97f44",
+          "version": "1.0.1"
         }
       },
       {
