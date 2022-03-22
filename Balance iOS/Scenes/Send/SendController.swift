@@ -185,7 +185,7 @@ class SendController: SPDiffableTableController {
                     }), for: .touchUpInside)
                     cell.scanButton.addAction(.init(handler: { _ in
                         SPQRCode.scanning(
-                            detect: { data in
+                            detect: { data, controller in
                                 switch data {
                                 case .ethWallet(_): return data
                                 default: return nil
@@ -227,6 +227,15 @@ class SendController: SPDiffableTableController {
         )
         
         dismissKeyboardWhenTappedAround()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setToolbarHidden(false, animated: true)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.setToolbarHidden(true, animated: true)
     }
     
     private func showErrorAlert(_ error: String? = nil) {

@@ -42,8 +42,8 @@
         "repositoryURL": "https://github.com/ivanvorobei/NativeUIKit",
         "state": {
           "branch": null,
-          "revision": "03ae36633a688567c32bc804682a452f0420710b",
-          "version": "1.4.6"
+          "revision": "2ff6cc2230f4eff14c1f4a07361896575ac811ab",
+          "version": "1.4.7"
         }
       },
       {
@@ -123,8 +123,8 @@
         "repositoryURL": "https://github.com/sparrowcode/SPQRCode",
         "state": {
           "branch": null,
-          "revision": "c9be1c3a228a032d6b143eca2d85d62ddce97f44",
-          "version": "1.0.1"
+          "revision": "2574c99c3cf55261d59e963f87d1d2ffeabc409b",
+          "version": "1.0.2"
         }
       },
       {
